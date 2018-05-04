@@ -32,13 +32,21 @@ public class DBHelper extends SQLiteOpenHelper {
     // Columns of the table 'orders'
 
     public static final String ORDER_ID = "id";
-    public static final String USER_ID_IN_ORDERS = "user_id";
     public static final String FIRST_DATE = "first_date";
     public static final String SECOND_DATE = "second_date";
     public static final String PRICE = "price";
     public static final String COUNT_OF_CHILDS = "count_of_childs";
     public static final String COUNT_OF_ADULTS = "count_of_adults";
     public static final String CLASS_OF_SEATS = "class_of_seats";
+
+    // Name of the table 'users-orders'
+
+    public static final String USERS_ORDERS_TABLE = "users_orders";
+
+    // Columns of the table 'users-orders'
+
+    public static final String USER_ID_USERS_ORDERS = "user_id";
+    public static final String ORDER_ID_USERS_ORDERS = "order_id";
 
     public DBHelper(Context context){
         super(context, DB_NAME, null, 1 );

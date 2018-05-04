@@ -12,10 +12,9 @@ public class Order {
 
     // Initial constructor
 
-    public Order(int id, int user_id, Date first_date, Date second_date, int price,
+    public Order(int id, Date first_date, Date second_date, int price,
                  int count_of_children, int count_of_adults, boolean isBusinessClass){
         this.id = id;
-        this.user_id = user_id;
         this.first_date = first_date;
         this.second_date = second_date;
         this.price = price;
@@ -27,7 +26,6 @@ public class Order {
     // Class' fields
 
     private int id;
-    private int user_id;
     private Date first_date;
     private Date second_date;
     private int price;
@@ -43,14 +41,6 @@ public class Order {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public int getUser_id() {
-        return user_id;
-    }
-
-    public void setUser_id(int user_id) {
-        this.user_id = user_id;
     }
 
     public Date getFirst_date() {
