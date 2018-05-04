@@ -39,9 +39,9 @@
         android:layout_width="153dp"
         android:layout_height="78dp"
         android:layout_marginEnd="100dp"
-        android:layout_marginTop="472dp"
-        android:text="Вперед!"
+        android:layout_marginTop="416dp"
         android:onClick="goButtonClick"
+        android:text="Вперед!"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
