@@ -22,7 +22,7 @@ public class User {
         this.email = email;
     }
 
-    // Class' fields
+    // Class's fields
 
     private int id;
     private String login;

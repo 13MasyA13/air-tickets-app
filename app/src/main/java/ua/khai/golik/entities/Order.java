@@ -12,8 +12,9 @@ public class Order {
 
     // Initial constructor
 
-    public Order(int id, Date first_date, Date second_date, int price,
-                 int count_of_children, int count_of_adults, boolean isBusinessClass){
+    public Order(int id, Date first_date, Date second_date, double price,
+                 int count_of_children, int count_of_adults, boolean isBusinessClass,
+                 String from, String to){
         this.id = id;
         this.first_date = first_date;
         this.second_date = second_date;
@@ -21,14 +22,19 @@ public class Order {
         this.count_of_children = count_of_children;
         this.count_of_adults = count_of_adults;
         this.isBusinessClass = isBusinessClass;
+        this.from = from;
+        this.to = to;
+
     }
 
-    // Class' fields
+    // Class's fields
 
     private int id;
     private Date first_date;
     private Date second_date;
-    private int price;
+    private String from;
+    private String to;
+    private double price;
     private int count_of_children;
     private int count_of_adults;
     private boolean isBusinessClass;
@@ -59,11 +65,11 @@ public class Order {
         this.second_date = second_date;
     }
 
-    public int getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 
@@ -89,5 +95,21 @@ public class Order {
 
     public void setBusinessClass(boolean businessClass) {
         isBusinessClass = businessClass;
+    }
+
+    public String getFrom() {
+        return from;
+    }
+
+    public void setFrom(String from) {
+        this.from = from;
+    }
+
+    public String getTo() {
+        return to;
+    }
+
+    public void setTo(String to) {
+        this.to = to;
     }
 }

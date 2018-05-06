@@ -68,7 +68,7 @@
 
         <activity android:name="ua.khai.golik.layoutsCreating.PersonalAreaActivity">
             <intent-filter>
-                <action/>
+                <action android:name="personal-area"/>
 
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>

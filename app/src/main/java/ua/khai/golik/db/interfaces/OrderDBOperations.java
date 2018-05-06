@@ -6,7 +6,7 @@ import ua.khai.golik.entities.Order;
 
 public interface OrderDBOperations {
 
-    public boolean insertNewOprder(Order order);
+    public boolean insertNewOrder(Order order);
 
     public Order getOrderByID(int id);
 
