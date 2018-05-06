@@ -26,6 +26,14 @@
             </intent-filter>
         </activity>
 
+        <activity android:name="ua.khai.golik.layoutsCreating.RegisterActivity">
+            <intent-filter>
+                <action android:name="register"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+
     </application>
 
 </manifest>
