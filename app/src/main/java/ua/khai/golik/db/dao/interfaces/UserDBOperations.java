@@ -10,5 +10,7 @@ public interface UserDBOperations {
 
     public User getUserByID(int id);
 
+    public User loginUserByLogAndPass(String login, String password);
+
     public List<User> getAllUsers();
 }

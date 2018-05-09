@@ -9,11 +9,12 @@ public class BusinessLogic implements CountFinalOrderPrice{
 
     // TODO price formula
 
-    // Price formula -> (() * ADULT_COEFF + () * CHILDREN_COEFF) * CLASS_COEFF
-
+    // Price formula -> PRICE = (((DAYS * PLACE) * ADULT_COEFF + (DAYS * PLACE) * CHILDREN_COEFF) * CLASS_COEFF) * CITY_COEFF)
 
 
     // Coefficients for formula
+
+
 
     // Type of passengers coefficients
 

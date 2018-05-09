@@ -28,5 +28,5 @@ public class MainActivity extends AppCompatActivity {
 
     // TODO method for execute secret menu for manage all data bases in the application
 
-    TextView accessText = findViewById(R.id.accessDBManagemant);
+    // TextView accessText = findViewById(R.id.accessDBManagemant);
 }
