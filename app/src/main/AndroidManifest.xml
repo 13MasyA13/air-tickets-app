@@ -36,7 +36,7 @@
 
         <activity android:name="ua.khai.golik.layoutsCreating.AboutActivity">
             <intent-filter>
-                <action/>
+                <action android:name="about"/>
 
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
@@ -44,7 +44,7 @@
 
         <activity android:name="ua.khai.golik.layoutsCreating.HelpActivity">
             <intent-filter>
-                <action/>
+                <action android:name="help"/>
 
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
@@ -52,7 +52,7 @@
 
         <activity android:name="ua.khai.golik.layoutsCreating.MakeOrderActivity">
             <intent-filter>
-                <action/>
+                <action android:name="make.order"/>
 
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
@@ -60,7 +60,7 @@
 
         <activity android:name="ua.khai.golik.layoutsCreating.MyOrdersActivity">
             <intent-filter>
-                <action/>
+                <action android:name="my.orders"/>
 
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
@@ -68,7 +68,7 @@
 
         <activity android:name="ua.khai.golik.layoutsCreating.PersonalAreaActivity">
             <intent-filter>
-                <action android:name="personal-area"/>
+                <action android:name="personal.area"/>
 
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
