@@ -7,18 +7,11 @@
     tools:context="ua.khai.golik.layoutsCreating.MainActivity">
 
     <ImageView
-        android:id="@+id/white_screen_background"
-        android:layout_width="391dp"
-        android:layout_height="588dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@android:color/background_light" />
-
-    <ImageView
         android:id="@+id/fly_img"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
+        android:layout_width="300dp"
+        android:layout_height="400dp"
+        android:layout_marginEnd="28dp"
+        android:layout_marginTop="36dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/main_img" />
@@ -39,10 +32,18 @@
         android:layout_width="153dp"
         android:layout_height="78dp"
         android:layout_marginEnd="100dp"
-        android:layout_marginTop="416dp"
+        android:layout_marginTop="380dp"
         android:onClick="goButtonClick"
         android:text="Вперед!"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/accessDBManagemant"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="v 0.1"
+        tools:layout_editor_absoluteX="165dp"
+        tools:layout_editor_absoluteY="473dp" />
 
 </android.support.constraint.ConstraintLayout>

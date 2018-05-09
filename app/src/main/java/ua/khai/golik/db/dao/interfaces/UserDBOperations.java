@@ -1,4 +1,4 @@
-package ua.khai.golik.db.interfaces;
+package ua.khai.golik.db.dao.interfaces;
 
 import java.util.List;
 
