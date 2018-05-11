@@ -5,11 +5,12 @@ import java.util.List;
 import ua.khai.golik.db.dao.interfaces.UserDBOperations;
 import ua.khai.golik.entities.User;
 
+// TODO UserDBOperations
 public class UserDAO implements UserDBOperations{
 
     @Override
-    public User loginUserByLogAndPass(String login, String password) {
-        return null;
+    public boolean loginUserByLogAndPass(String login, String password) {
+        return false;
     }
 
     @Override

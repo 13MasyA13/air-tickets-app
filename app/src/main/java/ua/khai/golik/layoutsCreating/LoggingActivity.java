@@ -7,12 +7,10 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import ua.golik.khai.air_tickets_app.R;
-import ua.khai.golik.db.DBHelper;
+import ua.golik.khai.R;
 import ua.khai.golik.db.dao.AbstractDAOFactory;
 import ua.khai.golik.db.dao.SQLiteDAOFactory;
 import ua.khai.golik.db.dao.UserDAO;
-import ua.khai.golik.entities.User;
 
 public class LoggingActivity extends AppCompatActivity {
 
@@ -52,10 +50,12 @@ public class LoggingActivity extends AppCompatActivity {
         AbstractDAOFactory abstractDAOFactory = new SQLiteDAOFactory();
         UserDAO userDAO = abstractDAOFactory.getUserDAO();
 
-        User user = userDAO.loginUserByLogAndPass(loginText, passwordText);
+        boolean isExists = userDAO.loginUserByLogAndPass(loginText, passwordText);
 
-        if(user != null){
-            Toast.makeText(LoggingActivity.this, "Successfully logging! Welcome, " + user.getFirst_name(), Toast.LENGTH_SHORT).show();
+        // TODO move user's data to another activity
+
+        if(isExists != false){
+            Toast.makeText(LoggingActivity.this, "Successfully logging! Welcome, " + loginText, Toast.LENGTH_SHORT).show();
             startActivity(personalArea);
         } else{
             Toast.makeText(LoggingActivity.this, "User with current inputed data hasn't exists, please try again", Toast.LENGTH_LONG).show();
