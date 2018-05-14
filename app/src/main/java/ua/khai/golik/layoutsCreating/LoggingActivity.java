@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import ua.golik.khai.R;
+import ua.golik.khai.air_tickets_app.R;
 import ua.khai.golik.db.dao.AbstractDAOFactory;
 import ua.khai.golik.db.dao.SQLiteDAOFactory;
 import ua.khai.golik.db.dao.UserDAO;
