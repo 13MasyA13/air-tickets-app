@@ -50,7 +50,6 @@ public class BusinessLogic implements CountFinalOrderPrice{
         answerMilliSeconds = d2 - d1;
 
         answer = answerMilliSeconds * 1000 * 60 * 60 * 24;
-
         return answer;
     }
 }

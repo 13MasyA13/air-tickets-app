@@ -58,6 +58,22 @@
             </intent-filter>
         </activity>
 
+        <activity android:name="ua.khai.golik.layoutsCreating.FirstDateActivity">
+            <intent-filter>
+                <action android:name="first.date"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+
+        <activity android:name="ua.khai.golik.layoutsCreating.SecondDateActivity">
+            <intent-filter>
+                <action android:name="second.date"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+
         <activity android:name="ua.khai.golik.layoutsCreating.MyOrdersActivity">
             <intent-filter>
                 <action android:name="my.orders"/>
