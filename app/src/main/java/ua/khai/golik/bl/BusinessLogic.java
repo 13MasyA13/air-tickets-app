@@ -40,11 +40,17 @@ public class BusinessLogic implements CountFinalOrderPrice{
         return 0;
     }
 
-    // TODO countDays() method
-
     @Override
-    public int countDays(Date firstDate, Date secondDate) {
-        final int CONST = 1000 * 60 * 60 * 24;
-        return 0;
+    public long countDays(Date firstDate, Date secondDate) {
+        long answer, answerMilliSeconds = 0;
+
+        long d1 = firstDate.getTime();
+        long d2 = secondDate.getTime();
+
+        answerMilliSeconds = d2 - d1;
+
+        answer = answerMilliSeconds * 1000 * 60 * 60 * 24;
+
+        return answer;
     }
 }

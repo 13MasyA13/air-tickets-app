@@ -8,5 +8,5 @@ public interface CountFinalOrderPrice {
 
     double countPrice(Order order);
 
-    int countDays(Date firstDate, Date secondDate);
+    long countDays(Date firstDate, Date secondDate);
 }
