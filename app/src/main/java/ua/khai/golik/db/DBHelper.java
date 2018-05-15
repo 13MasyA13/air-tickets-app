@@ -23,6 +23,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String USER_PASSWORD = "password";
     public static final String USER_FIRST_PHONE_NUMBER = "first_phone_number";
     public static final String USER_SECOND_PHONE_NUMBER = "second_phone_number";
+    public static final String USER_BIRTH_DATE = "user_birth_date";
     public static final String USER_EMAIL = "email";
 
     // Name of the table 'orders'
@@ -34,8 +35,8 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String ORDER_ID = "id";
     public static final String FIRST_DATE = "first_date";
     public static final String SECOND_DATE = "second_date";
-    public static final String FROM_PLACE = "from";
-    public static final String TO_PLACE = "to";
+    public static final String FROM_PLACE = "from_place";
+    public static final String TO_PLACE = "to_place";
     public static final String PRICE = "price";
     public static final String COUNT_OF_CHILDREN = "count_of_childs";
     public static final String COUNT_OF_ADULTS = "count_of_adults";
@@ -57,13 +58,15 @@ public class DBHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
 
+        // TODO foreignKeys
+
         // CREATION OF USER_TABLE
 
         db.execSQL("CREATE TABLE " + USER_TABLE + "(" + USER_ID + "INTEGER PRIMARY KEY AUTOINCREMENT" + "," +
                 USER_FIRST_NAME + "TEXT NOT NULL" + "," + USER_LAST_NAME + "TEXT NOT NULL" + "," +
                 USER_LOGIN + "TEXT NOT NULL" + "," + USER_PASSWORD + "TEXT NOT NULL" + "," +
-                USER_FIRST_PHONE_NUMBER + "TEXT NOT NULL" + "," + USER_SECOND_PHONE_NUMBER + "TEXT" +
-                USER_EMAIL + "TEXT" + ")");
+                USER_FIRST_PHONE_NUMBER + "TEXT NOT NULL" + "," + USER_SECOND_PHONE_NUMBER + "TEXT" + "," +
+                USER_BIRTH_DATE + "TEXT NOT NULL" + "," + USER_EMAIL + "TEXT" + ")");
 
         // CREATION OF ORDERS_TABLE
 
@@ -76,6 +79,8 @@ public class DBHelper extends SQLiteOpenHelper {
 
         db.execSQL("CREATE TABLE " + USERS_ORDERS_TABLE + "(" + USER_ID_USERS_ORDERS + "INTEGER NOT NULL" + "," +
                 ORDER_ID_USERS_ORDERS + "INTEGER NOT NULL"+ ")");
+
+        // TODO triggers
     }
 
     @Override

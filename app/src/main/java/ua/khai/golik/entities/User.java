@@ -11,7 +11,7 @@ public class User {
     // Initial constructor
 
     public User(int id, String login, String password, String first_name, String last_name,
-                String first_phone_number,String second_phone_number, String email){
+                String first_phone_number, String second_phone_number, String birthDate, String email){
         this.id = id;
         this.login = login;
         this.password = password;
@@ -19,6 +19,7 @@ public class User {
         this.last_name = last_name;
         this.first_phone_number = first_phone_number;
         this.second_phone_number = second_phone_number;
+        this.birthDate = birthDate;
         this.email = email;
     }
 
@@ -32,6 +33,7 @@ public class User {
     private String first_phone_number;
     private String second_phone_number;
     private String email;
+    private String birthDate;
 
     // Getters and Setters
 
@@ -97,5 +99,13 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getBirthDate() {
+        return birthDate;
+    }
+
+    public void setBirthDate(String birthDate) {
+        this.birthDate = birthDate;
     }
 }
