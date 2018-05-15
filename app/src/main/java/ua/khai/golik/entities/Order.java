@@ -14,7 +14,7 @@ public class Order {
 
     public Order(int id, Date first_date, Date second_date, double price,
                  int count_of_children, int count_of_adults, boolean isBusinessClass,
-                 String from, String to){
+                 String from_place, String to_place){
         this.id = id;
         this.first_date = first_date;
         this.second_date = second_date;
@@ -22,8 +22,8 @@ public class Order {
         this.count_of_children = count_of_children;
         this.count_of_adults = count_of_adults;
         this.isBusinessClass = isBusinessClass;
-        this.from = from;
-        this.to = to;
+        this.from_place = from_place;
+        this.to_place = to_place;
 
     }
 
@@ -32,8 +32,8 @@ public class Order {
     private int id;
     private Date first_date;
     private Date second_date;
-    private String from;
-    private String to;
+    private String from_place;
+    private String to_place;
     private double price;
     private int count_of_children;
     private int count_of_adults;
@@ -98,18 +98,18 @@ public class Order {
     }
 
     public String getFrom() {
-        return from;
+        return from_place;
     }
 
     public void setFrom(String from) {
-        this.from = from;
+        this.from_place = from;
     }
 
     public String getTo() {
-        return to;
+        return to_place;
     }
 
     public void setTo(String to) {
-        this.to = to;
+        this.to_place = to;
     }
 }

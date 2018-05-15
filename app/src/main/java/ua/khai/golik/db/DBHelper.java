@@ -34,10 +34,10 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String ORDER_ID = "id";
     public static final String FIRST_DATE = "first_date";
     public static final String SECOND_DATE = "second_date";
-    public static final String FROM = "from";
-    public static final String TO = "to";
+    public static final String FROM_PLACE = "from";
+    public static final String TO_PLACE = "to";
     public static final String PRICE = "price";
-    public static final String COUNT_OF_CHILDS = "count_of_childs";
+    public static final String COUNT_OF_CHILDREN = "count_of_childs";
     public static final String COUNT_OF_ADULTS = "count_of_adults";
     public static final String CLASS_OF_SEATS = "class_of_seats";
 
@@ -57,10 +57,31 @@ public class DBHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
 
+        // CREATION OF USER_TABLE
+
+        db.execSQL("CREATE TABLE " + USER_TABLE + "(" + USER_ID + "INTEGER PRIMARY KEY AUTOINCREMENT" + "," +
+                USER_FIRST_NAME + "TEXT NOT NULL" + "," + USER_LAST_NAME + "TEXT NOT NULL" + "," +
+                USER_LOGIN + "TEXT NOT NULL" + "," + USER_PASSWORD + "TEXT NOT NULL" + "," +
+                USER_FIRST_PHONE_NUMBER + "TEXT NOT NULL" + "," + USER_SECOND_PHONE_NUMBER + "TEXT" +
+                USER_EMAIL + "TEXT" + ")");
+
+        // CREATION OF ORDERS_TABLE
+
+        db.execSQL("CREATE TABLE " + ORDERS_TABLE + "(" + ORDER_ID + "INTEGER PRIMARY KEY AUTOINCREMENT" + "," +
+                FIRST_DATE + "TEXT NOT NULL" + "," + SECOND_DATE + "TEXT NOT NULL" + "," + FROM_PLACE + "TEXT NOT NULL " + "," +
+                TO_PLACE + "TEXT NOT NULL" + "," + PRICE + "INTEGER NOT NULL" + "," + COUNT_OF_ADULTS + "INTEGER NOT NULL" + "," +
+                COUNT_OF_CHILDREN + "INTEGER NOT NULL" + "," + CLASS_OF_SEATS + "INTEGER NOT NULL" + ")");
+
+        // CREATION OF USERS_ORDERS_TABLE
+
+        db.execSQL("CREATE TABLE " + USERS_ORDERS_TABLE + "(" + USER_ID_USERS_ORDERS + "INTEGER NOT NULL" + "," +
+                ORDER_ID_USERS_ORDERS + "INTEGER NOT NULL"+ ")");
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-
+        db.execSQL("DROP TABLE IF EXISTS " + USER_TABLE);
+        db.execSQL("DROP TABLE IF EXISTS " + ORDERS_TABLE);
+        onCreate(db);
     }
 }
