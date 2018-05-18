@@ -36,16 +36,6 @@ public class OrderDAO implements OrderDBOperations{
     }
 
     @Override
-    public Order getOrderByID(int id) {
-        SQLiteDatabase sqLiteDatabase = dbHelper.getWritableDatabase();
-        Cursor cursor = sqLiteDatabase.rawQuery("SELECT * FROM " + DBHelper.ORDERS_TABLE
-                + " WHERE " + DBHelper.ORDER_ID + " = " + id, null);
-        Order order = new Order();
-        // TODO get data from cursor
-        return order;
-    }
-
-    @Override
     public boolean deleteOrderByID(int id) {
         SQLiteDatabase sqLiteDatabase = dbHelper.getWritableDatabase();
         Cursor cursor = sqLiteDatabase.rawQuery("DELETE * FROM " + DBHelper.ORDERS_TABLE
