@@ -8,8 +8,6 @@ public interface OrderDBOperations {
 
     public boolean insertNewOrder(Order order);
 
-    public Order getOrderByID(int id);
-
     public boolean deleteOrderByID(int id);
 
     public List<Order> getAllOrders();

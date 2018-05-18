@@ -6,6 +6,8 @@ public abstract class AbstractDAOFactory {
 
     public abstract UserDAO getUserDAO();
 
+    public abstract UsersOrdersDAO getUsersOrdersDAO();
+
     public static SQLiteDAOFactory getSQLiteDAOFactory(){
         return new SQLiteDAOFactory();
     }

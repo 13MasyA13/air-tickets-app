@@ -11,4 +11,7 @@ public class SQLiteDAOFactory extends AbstractDAOFactory {
     public UserDAO getUserDAO() {
         return new UserDAO();
     }
+
+    @Override
+    public UsersOrdersDAO getUsersOrdersDAO() { return new UsersOrdersDAO(); }
 }
