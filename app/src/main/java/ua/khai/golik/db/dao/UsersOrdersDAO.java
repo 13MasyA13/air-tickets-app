@@ -3,6 +3,7 @@ package ua.khai.golik.db.dao;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import ua.khai.golik.db.DBHelper;
@@ -17,9 +18,11 @@ public class UsersOrdersDAO implements UsersOrdersDBOperations{
     public List<Order> getOrdersByUserID(int id) {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
 
-        // TODO SQL_Join between orders & users_orders tables
+        List<Order> listOfOrders = new ArrayList<>();
+        Cursor cursor = db.rawQuery("SELECT * FROM orders WHERE orders.user_id = users_orders.user_id", null);
 
-        Cursor cursor = db.rawQuery("SELECT * FROM orders WHERE user_id = 1", null);
+        cursor.moveToFirst();
+
         return null;
     }
 }

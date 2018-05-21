@@ -58,8 +58,6 @@ public class DBHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
 
-        // TODO foreignKeys
-
         // CREATION OF USER_TABLE
 
         db.execSQL("CREATE TABLE " + USER_TABLE + "(" + USER_ID + "INTEGER PRIMARY KEY AUTOINCREMENT" + "," +
@@ -74,13 +72,6 @@ public class DBHelper extends SQLiteOpenHelper {
                 FIRST_DATE + "TEXT NOT NULL" + "," + SECOND_DATE + "TEXT NOT NULL" + "," + FROM_PLACE + "TEXT NOT NULL " + "," +
                 TO_PLACE + "TEXT NOT NULL" + "," + PRICE + "INTEGER NOT NULL" + "," + COUNT_OF_ADULTS + "INTEGER NOT NULL" + "," +
                 COUNT_OF_CHILDREN + "INTEGER NOT NULL" + "," + CLASS_OF_SEATS + "INTEGER NOT NULL" + ")");
-
-        // CREATION OF USERS_ORDERS_TABLE
-
-        db.execSQL("CREATE TABLE " + USERS_ORDERS_TABLE + "(" + USER_ID_USERS_ORDERS + "INTEGER NOT NULL" + "," +
-                ORDER_ID_USERS_ORDERS + "INTEGER NOT NULL"+ ")");
-
-        // TODO triggers
     }
 
     @Override

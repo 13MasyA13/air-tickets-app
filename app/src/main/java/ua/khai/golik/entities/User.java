@@ -1,5 +1,7 @@
 package ua.khai.golik.entities;
 
+import java.util.List;
+
 public class User {
 
     // Default constructor
@@ -11,7 +13,7 @@ public class User {
     // Initial constructor
 
     public User(int id, String login, String password, String first_name, String last_name,
-                String first_phone_number, String second_phone_number, String birthDate, String email){
+                String first_phone_number, String second_phone_number, String birthDate, String email, List<Order> listOfOrders){
         this.id = id;
         this.login = login;
         this.password = password;
@@ -21,6 +23,7 @@ public class User {
         this.second_phone_number = second_phone_number;
         this.birthDate = birthDate;
         this.email = email;
+        this.listOfOrders = listOfOrders;
     }
 
     // Class's fields
@@ -34,6 +37,7 @@ public class User {
     private String second_phone_number;
     private String email;
     private String birthDate;
+    private List<Order> listOfOrders;
 
     // Getters and Setters
 
@@ -107,5 +111,13 @@ public class User {
 
     public void setBirthDate(String birthDate) {
         this.birthDate = birthDate;
+    }
+
+    public List<Order> getListOfOrders() {
+        return listOfOrders;
+    }
+
+    public void setListOfOrders(List<Order> listOfOrders) {
+        this.listOfOrders = listOfOrders;
     }
 }
