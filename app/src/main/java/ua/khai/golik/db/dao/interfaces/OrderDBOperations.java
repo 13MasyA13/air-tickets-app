@@ -8,7 +8,7 @@ public interface OrderDBOperations {
 
     public boolean insertNewOrder(Order order);
 
-    public boolean deleteOrderByID(int id);
+    public void deleteOrderByID(int id);
 
     public void deleteAllData();
 
