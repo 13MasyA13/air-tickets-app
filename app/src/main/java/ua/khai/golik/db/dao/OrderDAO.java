@@ -27,6 +27,7 @@ public class OrderDAO implements OrderDBOperations{
         SQLiteDatabase sqLiteDatabase = dbHelper.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
 
+
         if(contentValues.size() != 0){
             return true;
         } else{
@@ -34,6 +35,8 @@ public class OrderDAO implements OrderDBOperations{
 
         }
     }
+
+    // TODO deleteOrderById()
 
     @Override
     public boolean deleteOrderByID(int id) {
@@ -52,25 +55,40 @@ public class OrderDAO implements OrderDBOperations{
 
         cursor.moveToFirst();
 
-        // TODO DB structure
-
-        int id;
-        Date firstDate;
-        Date secondDate;
-        String from;
-        String to;
-        int price;
-        int countOfChildren;
-        int coundOfAdults;
-        int countOfSeats;
+        int id = cursor.getColumnIndex(DBHelper.ORDER_ID);
+        int firstDate = cursor.getColumnIndex(DBHelper.FIRST_DATE);
+        int secondDate = cursor.getColumnIndex(DBHelper.SECOND_DATE);
+        int from = cursor.getColumnIndex(DBHelper.FROM_PLACE);
+        int to = cursor.getColumnIndex(DBHelper.TO_PLACE);
+        int price = cursor.getColumnIndex(DBHelper.PRICE);
+        int countOfChildren = cursor.getColumnIndex(DBHelper.COUNT_OF_CHILDREN);
+        int countOfAdults = cursor.getColumnIndex(DBHelper.COUNT_OF_ADULTS);
+        int countOfSeats = cursor.getColumnIndex(DBHelper.CLASS_OF_SEATS);
 
         if(cursor.moveToFirst()){
             while (cursor.moveToNext()){
                 Order order =  new Order();
+
+                order.setId(cursor.getInt(id));
+                order.setFirst_date(cursor.getString(firstDate));
+                order.setSecond_date(cursor.getString(secondDate));
+                order.setFrom_place(cursor.getString(from));
+                order.setTo_place(cursor.getString(to));
+                order.setPrice(cursor.getInt(price));
+                order.setCount_of_children(cursor.getInt(countOfChildren));
+                order.setCount_of_adults(cursor.getInt(countOfAdults));
+                order.setCount_of_seats(cursor.getInt(countOfSeats));
+
+                listOfAllOrders.add(order);
             }
-        } else{
-            // TODO event error
         }
-        return null;
+
+        return listOfAllOrders;
+    }
+
+    @Override
+    public void deleteAllData() {
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+        db.execSQL("delete from " + DBHelper.ORDERS_TABLE);
     }
 }
