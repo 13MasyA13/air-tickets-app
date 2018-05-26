@@ -12,7 +12,7 @@ public class Order {
 
     // Initial constructor
 
-    public Order(int id, Date first_date, Date second_date, double price,
+    public Order(int id, String first_date, String second_date, double price,
                  int count_of_children, int count_of_adults, boolean isBusinessClass,
                  String from_place, String to_place){
         this.id = id;
@@ -30,8 +30,8 @@ public class Order {
     // Class's fields
 
     private int id;
-    private Date first_date;
-    private Date second_date;
+    private String first_date;
+    private String second_date;
     private String from_place;
     private String to_place;
     private double price;
@@ -49,19 +49,19 @@ public class Order {
         this.id = id;
     }
 
-    public Date getFirst_date() {
+    public String getFirst_date() {
         return first_date;
     }
 
-    public void setFirst_date(Date first_date) {
+    public void setFirst_date(String first_date) {
         this.first_date = first_date;
     }
 
-    public Date getSecond_date() {
+    public String getSecond_date() {
         return second_date;
     }
 
-    public void setSecond_date(Date second_date) {
+    public void setSecond_date(String second_date) {
         this.second_date = second_date;
     }
 
@@ -97,19 +97,19 @@ public class Order {
         isBusinessClass = businessClass;
     }
 
-    public String getFrom() {
+    public String getFrom_place() {
         return from_place;
     }
 
-    public void setFrom(String from) {
-        this.from_place = from;
+    public void setFrom_place(String from_place) {
+        this.from_place = from_place;
     }
 
-    public String getTo() {
+    public String getTo_place() {
         return to_place;
     }
 
-    public void setTo(String to) {
-        this.to_place = to;
+    public void setTo_place(String to_place) {
+        this.to_place = to_place;
     }
 }
