@@ -23,8 +23,19 @@ public class UserDAO implements UserDBOperations{
         Cursor cursor = db.rawQuery("SELECT login, password FROM " + DBHelper.USER_TABLE
                 + " WHERE login = " + login + " AND password = " + password, null);
 
-        // TODO get data from cursor & check is it data like params or not
-        return false;
+        int logInd = cursor.getColumnIndex(DBHelper.USER_LOGIN);
+        int pasInd = cursor.getColumnIndex(DBHelper.USER_PASSWORD);
+
+        String log = cursor.getString(logInd);
+        String pass = cursor.getString(pasInd);
+
+        if(log.equals("") || log == null){
+            return false;
+        } else if(pass.equals("") || pass == null){
+            return false;
+        }
+
+        return true;
     }
 
     @Override
