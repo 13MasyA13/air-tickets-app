@@ -50,8 +50,6 @@ public class UserDAO implements UserDBOperations{
         }
     }
 
-    // TODO getUserByID()
-
     @Override
     public User getUserByID(int id) {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
@@ -59,8 +57,17 @@ public class UserDAO implements UserDBOperations{
 
         cursor.moveToFirst();
 
+        cursor.move(id);
 
-        return null;
+        User user = new User();
+        user.setId(cursor.getInt(cursor.getColumnIndex(DBHelper.USER_ID)));
+        user.setFirst_name(cursor.getString(cursor.getColumnIndex(DBHelper.USER_FIRST_NAME)));
+        user.setLast_name(cursor.getString(cursor.getColumnIndex(DBHelper.USER_LAST_NAME)));
+        user.setFirst_phone_number(cursor.getString(cursor.getColumnIndex(DBHelper.USER_FIRST_PHONE_NUMBER)));
+        user.setSecond_phone_number(cursor.getString(cursor.getColumnIndex(DBHelper.USER_SECOND_PHONE_NUMBER)));
+        user.setBirthDate(cursor.getString(cursor.getColumnIndex(DBHelper.USER_BIRTH_DATE)));
+        user.setEmail(cursor.getString(cursor.getColumnIndex(DBHelper.USER_EMAIL)));
+        return user;
     }
 
     @Override
@@ -96,5 +103,11 @@ public class UserDAO implements UserDBOperations{
             }
         }
         return userList;
+    }
+
+    @Override
+    public void deleteAllData() {
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+        db.execSQL("delete from " + DBHelper.USER_TABLE);
     }
 }
