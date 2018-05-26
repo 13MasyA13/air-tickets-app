@@ -3,12 +3,8 @@ package ua.khai.golik.db.dao;
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteDatabaseLockedException;
-import android.util.Log;
-import android.widget.Toast;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import ua.khai.golik.db.DBHelper;
@@ -39,7 +35,7 @@ public class OrderDAO implements OrderDBOperations{
     @Override
     public void deleteOrderByID(int id) {
         SQLiteDatabase sqLiteDatabase = dbHelper.getWritableDatabase();
-        Cursor cursor = sqLiteDatabase.rawQuery("DELETE * FROM " + DBHelper.ORDERS_TABLE
+        sqLiteDatabase.execSQL("DELETE * FROM " + DBHelper.ORDERS_TABLE
                 + " WHERE " + DBHelper.ORDER_ID + " = " + id, null);
     }
 
