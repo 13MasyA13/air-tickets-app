@@ -1,38 +1,102 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:layout_editor_absoluteY="81dp">
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/makeOrderButton"
         android:layout_width="322dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
-        android:layout_marginTop="428dp"
-        android:text="Сделать бронь"
+        android:layout_marginTop="8dp"
+        android:text="Make Order"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/newIcon" />
 
     <Button
-        android:id="@+id/button2"
-        android:layout_width="321dp"
+        android:id="@+id/ordersButton"
+        android:layout_width="322dp"
+        android:layout_height="45dp"
+        android:layout_marginEnd="16dp"
+        android:text="My Booked Tickets"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tiketsImage" />
+
+    <Button
+        android:id="@+id/logOutButton"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
-        android:layout_marginTop="312dp"
-        android:text="Изменить данные"
+        android:layout_marginTop="8dp"
+        android:text="Log Out"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/helloLabel"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="Hello,"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/helpPersonalButton"
+        android:layout_width="322dp"
+        android:layout_height="46dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="4dp"
+        android:text="Help"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/helpImage" />
+
+    <Button
+        android:id="@+id/aboutApp"
         android:layout_width="322dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
-        android:layout_marginTop="248dp"
-        android:text="Мои заказы"
+        android:text="About app"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/infoIcon" />
+
+    <ImageView
+        android:id="@+id/tiketsImage"
+        android:layout_width="228dp"
+        android:layout_height="61dp"
+        android:layout_marginEnd="64dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/makeOrderButton"
+        app:srcCompat="@drawable/tickets_icon" />
+
+    <ImageView
+        android:id="@+id/helpImage"
+        android:layout_width="wrap_content"
+        android:layout_height="63dp"
+        android:layout_marginTop="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ordersButton"
+        app:srcCompat="@drawable/help_icon" />
+
+    <ImageView
+        android:id="@+id/infoIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="55dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/helpPersonalButton"
+        app:srcCompat="@drawable/about_icon" />
+
+    <ImageView
+        android:id="@+id/newIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="63dp"
+        android:layout_marginTop="56dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/new_icon" />
+
 </android.support.constraint.ConstraintLayout>
