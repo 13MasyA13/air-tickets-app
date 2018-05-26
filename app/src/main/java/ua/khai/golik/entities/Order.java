@@ -13,14 +13,15 @@ public class Order {
     // Initial constructor
 
     public Order(int id, String first_date, String second_date, double price,
-                 int count_of_children, int count_of_adults, boolean isBusinessClass,
-                 String from_place, String to_place){
+                 int count_of_children, int count_of_adults, int count_of_seats,
+                 boolean isBusinessClass, String from_place, String to_place){
         this.id = id;
         this.first_date = first_date;
         this.second_date = second_date;
         this.price = price;
         this.count_of_children = count_of_children;
         this.count_of_adults = count_of_adults;
+        this.count_of_seats = count_of_seats;
         this.isBusinessClass = isBusinessClass;
         this.from_place = from_place;
         this.to_place = to_place;
@@ -37,6 +38,7 @@ public class Order {
     private double price;
     private int count_of_children;
     private int count_of_adults;
+    private int count_of_seats;
     private boolean isBusinessClass;
 
     // Getters and Setters
@@ -87,6 +89,14 @@ public class Order {
 
     public void setCount_of_adults(int count_of_adults) {
         this.count_of_adults = count_of_adults;
+    }
+
+    public int getCount_of_seats() {
+        return count_of_seats;
+    }
+
+    public void setCount_of_seats(int count_of_seats) {
+        this.count_of_seats = count_of_seats;
     }
 
     public boolean isBusinessClass() {
