@@ -46,13 +46,8 @@ public class DBHelper extends SQLiteOpenHelper {
 
     public static final String USERS_ORDERS_TABLE = "users_orders";
 
-    // Columns of the table 'users-orders'
-
-    public static final String USER_ID_USERS_ORDERS = "user_id";
-    public static final String ORDER_ID_USERS_ORDERS = "order_id";
-
     public DBHelper(Context context){
-        super(context, DB_NAME, null, 1 );
+        super(context, DB_NAME, null, 2 );
     }
 
     @Override
