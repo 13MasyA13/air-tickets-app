@@ -12,5 +12,7 @@ public interface UserDBOperations {
 
     public boolean loginUserByLogAndPass(String login, String password);
 
+    public void deleteAllData();
+
     public List<User> getAllUsers();
 }

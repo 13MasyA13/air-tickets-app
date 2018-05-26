@@ -10,5 +10,7 @@ public interface OrderDBOperations {
 
     public boolean deleteOrderByID(int id);
 
+    public void deleteAllData();
+
     public List<Order> getAllOrders();
 }

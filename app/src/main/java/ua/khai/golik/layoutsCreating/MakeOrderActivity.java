@@ -9,6 +9,8 @@ import ua.golik.khai.air_tickets_app.R;
 
 public class MakeOrderActivity extends AppCompatActivity {
 
+    private static final String makeOrderActivity = "MakeOrderActivity";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

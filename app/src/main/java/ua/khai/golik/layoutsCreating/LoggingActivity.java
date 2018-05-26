@@ -14,6 +14,8 @@ import ua.khai.golik.db.dao.UserDAO;
 
 public class LoggingActivity extends AppCompatActivity {
 
+    private static final String loggingActivity = "LoggingActivity";
+
     // Secret password to access activity for managing all db in the application
 
     private static final String SECRET_KEY = "xH7238t";

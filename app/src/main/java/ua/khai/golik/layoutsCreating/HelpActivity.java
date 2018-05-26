@@ -7,6 +7,8 @@ import ua.golik.khai.air_tickets_app.R;
 
 public class HelpActivity extends AppCompatActivity {
 
+    private static final String helpActivity = "HelpActivity";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

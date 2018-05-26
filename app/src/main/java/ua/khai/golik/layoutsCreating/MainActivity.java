@@ -14,7 +14,7 @@ import ua.golik.khai.air_tickets_app.R;
 
 public class MainActivity extends AppCompatActivity {
 
-
+    private static final String mainActivity = "MainActivity";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

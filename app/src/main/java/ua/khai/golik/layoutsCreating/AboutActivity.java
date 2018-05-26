@@ -7,6 +7,8 @@ import ua.golik.khai.air_tickets_app.R;
 
 public class AboutActivity extends AppCompatActivity {
 
+    private static final String aboutActivity = "AboutActivity";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
