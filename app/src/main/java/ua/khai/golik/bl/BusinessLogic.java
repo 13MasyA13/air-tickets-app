@@ -1,6 +1,8 @@
 package ua.khai.golik.bl;
 
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 
 import ua.khai.golik.bl.interfaces.CountFinalOrderPrice;
 import ua.khai.golik.entities.Order;
@@ -41,11 +43,17 @@ public class BusinessLogic implements CountFinalOrderPrice{
     }
 
     @Override
-    public long countDays(Date firstDate, Date secondDate) {
+    public long countDays(int fDay, int fMonth, int fYear, int sDay, int sMonth, int sYear) {
         long answer, answerMilliSeconds = 0;
 
-        long d1 = firstDate.getTime();
-        long d2 = secondDate.getTime();
+        Calendar firstDate = Calendar.getInstance();
+        firstDate.set(fYear, fMonth, fDay);
+
+        Calendar secondDate = Calendar.getInstance();
+        secondDate.set(sYear, sMonth, sYear);
+
+        long d1 = firstDate.getTimeInMillis();
+        long d2 = secondDate.getTimeInMillis();
 
         answerMilliSeconds = d2 - d1;
 
