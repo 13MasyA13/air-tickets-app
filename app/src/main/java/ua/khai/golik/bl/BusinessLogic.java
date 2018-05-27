@@ -35,6 +35,19 @@ public class BusinessLogic implements CountFinalOrderPrice{
     private static final double ECONOM_CLASS_KOEFF = 1;
 
     // Default prices
+    
+    private static final double sharmPrice = 250;
+    private static final double kemerPrice = 120;
+    private static final double antalyaPrice = 215;
+    private static final double kairoPrice = 119;
+    private static final double mentonPrice = 280;
+    private static final double nerjaPrice = 375;
+    private static final double biarritzPrice = 590;
+    private static final double sanSebastianPrice = 1250;
+    private static final double formentaraPrice = 950;
+    private static final double portoSantoPrice = 1090;
+    private static final double viareggioPrice = 470;
+    private static final double playaBlancaPrice = 940;
 
 
 
