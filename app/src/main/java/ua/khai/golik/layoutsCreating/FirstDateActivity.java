@@ -2,7 +2,6 @@ package ua.khai.golik.layoutsCreating;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.CalendarView;
@@ -20,11 +19,11 @@ public class FirstDateActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.first_date_activity);
 
-        calendarView = findViewById(R.id.confirmFirstDate);
+        calendarView = findViewById(R.id.firstDateCalendar);
 
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
-            public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
+            public void onSelectedDayChange(CalendarView view, int year, int month, int dayOfMonth) {
                 int[] date = new int[2];
                 date[0] = dayOfMonth + 1;
                 date[1] = month;
