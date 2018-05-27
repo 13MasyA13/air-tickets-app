@@ -2,7 +2,17 @@
     <string name="app_name">Air Tickets</string>
 
     <string name="version">v0.5</string>
-    <array name="toPlaces">
-        <item></item>
-    </array>
+
+    <string-array name="formPlaces">
+        <item>Kharkiv</item>
+        <item>Kiev</item>
+        <item>Odessa</item>
+    </string-array>
+
+    <string-array name="toPlaces">
+        <item>Sharm El Sheikh</item>
+        <item>Kairo</item>
+        <item>Kemer</item>
+        <item>Antalya</item>
+    </string-array>
 </resources>
