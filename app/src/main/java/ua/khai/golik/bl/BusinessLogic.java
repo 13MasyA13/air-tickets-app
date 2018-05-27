@@ -49,14 +49,14 @@ public class BusinessLogic implements CountFinalOrderPrice{
     }
 
     @Override
-    public long countDays(int fDay, int fMonth, int fYear, int sDay, int sMonth, int sYear) {
+    public long countDays(int[] firstDateMas, int[] secondDateMas) {
         long answer, answerMilliSeconds = 0;
 
         Calendar firstDate = Calendar.getInstance();
-        firstDate.set(fYear, fMonth, fDay);
+        firstDate.set(firstDateMas[2], firstDateMas[1], firstDateMas[0]);
 
         Calendar secondDate = Calendar.getInstance();
-        secondDate.set(sYear, sMonth, sYear);
+        secondDate.set(secondDateMas[2], secondDateMas[1], secondDateMas[0]);
 
         long d1 = firstDate.getTimeInMillis();
         long d2 = secondDate.getTimeInMillis();
@@ -64,6 +64,7 @@ public class BusinessLogic implements CountFinalOrderPrice{
         answerMilliSeconds = d2 - d1;
 
         answer = answerMilliSeconds * 1000 * 60 * 60 * 24;
+
         return answer;
     }
 }

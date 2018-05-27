@@ -90,6 +90,14 @@
             </intent-filter>
         </activity>
 
+        <activity android:name="ua.khai.golik.layoutsCreating.SelectBirthdayActitity">
+            <intent-filter>
+                <action android:name="select.birthday"></action>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+
     </application>
 
 </manifest>
