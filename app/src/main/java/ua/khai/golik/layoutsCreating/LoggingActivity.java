@@ -50,9 +50,7 @@ public class LoggingActivity extends AppCompatActivity {
 
         boolean isExists = userDAO.loginUserByLogAndPass(loginText, passwordText);
 
-        // TODO move user's data to another activity
-
-        if(isExists != false){
+        if(isExists = false){
             Toast.makeText(LoggingActivity.this, "Successfully logging! Welcome, " + loginText, Toast.LENGTH_SHORT).show();
             startActivity(personalArea);
         } else{
@@ -62,8 +60,8 @@ public class LoggingActivity extends AppCompatActivity {
     }
 
     public void onRegisterClick(View view){
-        Intent makeOrderActivity = new Intent("makeOrder");
-        startActivity(makeOrderActivity);
+        Intent registrationActivity = new Intent("register");
+        startActivity(registrationActivity);
     }
 
 }

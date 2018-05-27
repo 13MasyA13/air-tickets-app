@@ -55,21 +55,42 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="phone" />
+                android:inputType="phone"
+                android:text="FirstPhone" />
+
+            <TextView
+                android:id="@+id/secondPhoneNotRequiredLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Not required" />
 
             <EditText
                 android:id="@+id/secondPhone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="phone" />
+                android:inputType="phone"
+                android:text="Second Phone" />
+
+            <TextView
+                android:id="@+id/birthdayLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="TextView" />
+
+            <Button
+                android:id="@+id/birthdayLayoutExecutingButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Choose Date of Your Birthday" />
 
             <EditText
                 android:id="@+id/email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="textEmailAddress" />
+                android:inputType="textEmailAddress"
+                android:text="Email" />
 
             <Button
                 android:id="@+id/registerButton"
