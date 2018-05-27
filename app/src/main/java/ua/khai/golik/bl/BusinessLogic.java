@@ -11,7 +11,7 @@ public class BusinessLogic implements CountFinalOrderPrice{
 
     // TODO price formula
 
-    // Price formula -> PRICE = (((DAYS * PLACE) * ADULT_COEFF + (DAYS * PLACE) * CHILDREN_COEFF) * CLASS_COEFF) * CITY_COEFF)
+    // Price formula -> PRICE = DEF_PRICE * DAYS * CITY_COEFF * ()
 
 
     // Coefficients for formula
@@ -34,10 +34,16 @@ public class BusinessLogic implements CountFinalOrderPrice{
     private static final double BUSINESS_CLASS_KOEFF = 1.6;
     private static final double ECONOM_CLASS_KOEFF = 1;
 
+    // Default prices
+
+
+
     // TODO countPrice() method
 
     @Override
     public double countPrice(Order order){
+        double answ = 0;
+
 
         return 0;
     }

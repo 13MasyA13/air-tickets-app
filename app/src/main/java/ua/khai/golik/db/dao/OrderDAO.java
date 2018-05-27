@@ -15,20 +15,27 @@ public class OrderDAO implements OrderDBOperations{
 
     DBHelper dbHelper;
 
-    // TODO insertNewOrder()
-
     @Override
     public boolean insertNewOrder(Order order) {
 
         SQLiteDatabase sqLiteDatabase = dbHelper.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
 
+        contentValues.put(DBHelper.FIRST_DATE, order.getFirst_date());
+        contentValues.put(DBHelper.SECOND_DATE, order.getSecond_date());
+        contentValues.put(DBHelper.FROM_PLACE, order.getFrom_place());
+        contentValues.put(DBHelper.TO_PLACE, order.getTo_place());
+        contentValues.put(DBHelper.PRICE, order.getPrice());
+        contentValues.put(DBHelper.COUNT_OF_CHILDREN, order.getCount_of_children());
+        contentValues.put(DBHelper.COUNT_OF_ADULTS, order.getCount_of_adults());
+        contentValues.put(DBHelper.CLASS_OF_SEATS, order.getCount_of_seats());
 
-        if(contentValues.size() != 0){
+        long res = sqLiteDatabase.insert(DBHelper.ORDERS_TABLE, null, contentValues);
+
+        if(res != 0){
             return true;
         } else{
             return false;
-
         }
     }
 

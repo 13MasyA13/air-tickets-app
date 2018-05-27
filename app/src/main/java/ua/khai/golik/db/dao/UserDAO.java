@@ -11,8 +11,6 @@ import ua.khai.golik.db.DBHelper;
 import ua.khai.golik.db.dao.interfaces.UserDBOperations;
 import ua.khai.golik.entities.User;
 
-// TODO UserDBOperations
-
 public class UserDAO implements UserDBOperations{
 
     DBHelper dbHelper;
