@@ -4,7 +4,9 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import ua.khai.golik.db.DBHelper;
@@ -13,10 +15,8 @@ import ua.khai.golik.entities.User;
 
 public class UserDAO implements UserDBOperations{
 
-    DBHelper dbHelper;
-
     @Override
-    public boolean loginUserByLogAndPass(String login, String password) {
+    public boolean loginUserByLogAndPass(DBHelper dbHelper, String login, String password) {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         Cursor cursor = db.rawQuery("SELECT login, password FROM " + DBHelper.USER_TABLE
                 + " WHERE login = " + login + " AND password = " + password, null);
@@ -37,7 +37,7 @@ public class UserDAO implements UserDBOperations{
     }
 
     @Override
-    public boolean insertNewUser(User user) {
+    public boolean insertNewUser(DBHelper dbHelper, User user) {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
 
@@ -60,7 +60,7 @@ public class UserDAO implements UserDBOperations{
     }
 
     @Override
-    public User getUserByID(int id) {
+    public User getUserByID(DBHelper dbHelper, int id) {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         Cursor cursor = db.query(DBHelper.USER_TABLE, null, null, null, null, null , null);
 
@@ -80,7 +80,7 @@ public class UserDAO implements UserDBOperations{
     }
 
     @Override
-    public List<User> getAllUsers() {
+    public List<User> getAllUsers(DBHelper dbHelper) {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         Cursor cursor = db.query(DBHelper.USER_TABLE, null, null, null, null, null , null);
 
@@ -115,7 +115,40 @@ public class UserDAO implements UserDBOperations{
     }
 
     @Override
-    public void deleteAllData() {
+    public boolean checkForUniqueLogin(DBHelper dbHelper, String login) {
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+        Cursor cursor = db.query(DBHelper.USER_TABLE, null, null, null,null,null,null);
+        ArrayList<String> allLogins = new ArrayList<>();
+
+        int idIndex = cursor.getColumnIndex(DBHelper.USER_ID);
+        int fNameIndex = cursor.getColumnIndex(DBHelper.USER_FIRST_NAME);
+        int loginIndex = cursor.getColumnIndex(DBHelper.USER_LOGIN);
+        cursor.moveToFirst();
+
+        if (cursor.moveToFirst()) {
+            while (cursor.moveToNext()) {
+                String currentLogin = cursor.getString(loginIndex);
+                allLogins.add(currentLogin);
+            }
+        }
+
+        boolean answ = true;
+
+        Iterator<String> iterator = allLogins.iterator();
+        while (iterator.hasNext()) {
+            if (iterator.next().equals(login)) {
+                answ = false;
+            } else {
+                answ = true;
+                break;
+            }
+        }
+
+        return answ;
+    }
+
+    @Override
+    public void deleteAllData(DBHelper dbHelper) {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         db.execSQL("delete from " + DBHelper.USER_TABLE);
     }
