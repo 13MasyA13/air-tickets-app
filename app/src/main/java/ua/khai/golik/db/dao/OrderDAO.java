@@ -28,7 +28,7 @@ public class OrderDAO implements OrderDBOperations{
         contentValues.put(DBHelper.PRICE, order.getPrice());
         contentValues.put(DBHelper.COUNT_OF_CHILDREN, order.getCount_of_children());
         contentValues.put(DBHelper.COUNT_OF_ADULTS, order.getCount_of_adults());
-        contentValues.put(DBHelper.CLASS_OF_SEATS, order.getCount_of_seats());
+        contentValues.put(DBHelper.COUNT_OF_SEATS, order.getCount_of_seats());
 
         long res = sqLiteDatabase.insert(DBHelper.ORDERS_TABLE, null, contentValues);
 
@@ -62,7 +62,7 @@ public class OrderDAO implements OrderDBOperations{
         int price = cursor.getColumnIndex(DBHelper.PRICE);
         int countOfChildren = cursor.getColumnIndex(DBHelper.COUNT_OF_CHILDREN);
         int countOfAdults = cursor.getColumnIndex(DBHelper.COUNT_OF_ADULTS);
-        int countOfSeats = cursor.getColumnIndex(DBHelper.CLASS_OF_SEATS);
+        int countOfSeats = cursor.getColumnIndex(DBHelper.COUNT_OF_SEATS);
 
         if(cursor.moveToFirst()){
             while (cursor.moveToNext()){
