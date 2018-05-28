@@ -38,16 +38,12 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String FROM_PLACE = "from_place";
     public static final String TO_PLACE = "to_place";
     public static final String PRICE = "price";
-    public static final String COUNT_OF_CHILDREN = "count_of_childs";
+    public static final String COUNT_OF_CHILDREN = "count_of_children";
     public static final String COUNT_OF_ADULTS = "count_of_adults";
-    public static final String CLASS_OF_SEATS = "class_of_seats";
-
-    // Name of the table 'users-orders'
-
-    public static final String USERS_ORDERS_TABLE = "users_orders";
+    public static final String COUNT_OF_SEATS = "count_of_seats";
 
     public DBHelper(Context context){
-        super(context, DB_NAME, null, 2 );
+        super(context, DB_NAME, null, 10);
     }
 
     @Override
@@ -55,18 +51,16 @@ public class DBHelper extends SQLiteOpenHelper {
 
         // CREATION OF USER_TABLE
 
-        db.execSQL("CREATE TABLE " + USER_TABLE + "(" + USER_ID + "INTEGER PRIMARY KEY AUTOINCREMENT" + "," +
-                USER_FIRST_NAME + "TEXT NOT NULL" + "," + USER_LAST_NAME + "TEXT NOT NULL" + "," +
-                USER_LOGIN + "TEXT NOT NULL" + "," + USER_PASSWORD + "TEXT NOT NULL" + "," +
-                USER_FIRST_PHONE_NUMBER + "TEXT NOT NULL" + "," + USER_SECOND_PHONE_NUMBER + "TEXT" + "," +
-                USER_BIRTH_DATE + "TEXT NOT NULL" + "," + USER_EMAIL + "TEXT" + ")");
+        db.execSQL("CREATE TABLE 'users' ('id' INTEGER PRIMARY KEY AUTOINCREMENT ,'first_name' TEXT NOT NULL, " +
+                "'last_name' TEXT NOT NULL, 'login' TEXT NOT NULL, 'password' TEXT NOT NULL, 'first_phone_number' TEXT NOT NULL, " +
+                "'secont_phone_number' TEXT, 'birth_date' TEXT NOT NULL, 'email' TEXT NOT NULL)");
 
         // CREATION OF ORDERS_TABLE
 
-        db.execSQL("CREATE TABLE " + ORDERS_TABLE + "(" + ORDER_ID + "INTEGER PRIMARY KEY AUTOINCREMENT" + "," +
-                FIRST_DATE + "TEXT NOT NULL" + "," + SECOND_DATE + "TEXT NOT NULL" + "," + FROM_PLACE + "TEXT NOT NULL " + "," +
-                TO_PLACE + "TEXT NOT NULL" + "," + PRICE + "INTEGER NOT NULL" + "," + COUNT_OF_ADULTS + "INTEGER NOT NULL" + "," +
-                COUNT_OF_CHILDREN + "INTEGER NOT NULL" + "," + CLASS_OF_SEATS + "INTEGER NOT NULL" + ")");
+        db.execSQL("CREATE TABLE 'orders' ('id' INTEGER PRIMARY KEY AUTOINCREMENT, 'first_date' TEXT NOT NULL, 'second date' TEXT NOT NULL, " +
+                "'from_place' TEXT NOT NULL, 'to_place' TEXT NOT NULL, 'price' INTEGER NOT NULL, 'count_of_adults' INTEGER NOT NULL, " +
+                "'count_of_children' INTEGER NOT NULL, 'count_of_seats' INTEGER NOT NULL)");
+
     }
 
     @Override
