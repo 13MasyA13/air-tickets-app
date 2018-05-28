@@ -31,7 +31,7 @@ public class UsersOrdersDAO implements UsersOrdersDBOperations{
         int price = cursor.getColumnIndex(DBHelper.PRICE);
         int countOfChildren = cursor.getColumnIndex(DBHelper.COUNT_OF_CHILDREN);
         int countOfAdults = cursor.getColumnIndex(DBHelper.COUNT_OF_ADULTS);
-        int countOfSeats = cursor.getColumnIndex(DBHelper.CLASS_OF_SEATS);
+        int countOfSeats = cursor.getColumnIndex(DBHelper.COUNT_OF_SEATS);
 
         if(cursor.moveToFirst()){
             while(cursor.moveToNext()){
