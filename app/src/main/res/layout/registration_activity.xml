@@ -76,13 +76,14 @@
                 android:id="@+id/birthdayLabel"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:text="" />
 
             <Button
                 android:id="@+id/birthdayLayoutExecutingButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Choose Date of Your Birthday" />
+                android:text="Choose Date of Your Birthday"
+                android:onClick="selectBirthdayDateOnClick"/>
 
             <EditText
                 android:id="@+id/email"
@@ -96,7 +97,8 @@
                 android:id="@+id/registerButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Regitser" />
+                android:text="Regitser"
+                android:onClick="registrationOnClick"/>
         </LinearLayout>
     </ScrollView>
 </android.support.constraint.ConstraintLayout>
