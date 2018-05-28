@@ -8,6 +8,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import ua.golik.khai.air_tickets_app.R;
+import ua.khai.golik.db.DBHelper;
 import ua.khai.golik.db.dao.AbstractDAOFactory;
 import ua.khai.golik.db.dao.SQLiteDAOFactory;
 import ua.khai.golik.db.dao.UserDAO;
@@ -16,12 +17,19 @@ public class LoggingActivity extends AppCompatActivity {
 
     private static final String loggingActivity = "LoggingActivity";
 
-    EditText login,password;
+    private DBHelper dbHelper;
+
+    private EditText login,password;
+
+    public static int userID = 0;
+    public static String userFirstName = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.logging_activity);
+
+        dbHelper = new DBHelper(this);
     }
 
     public void onLoginClick(View view){
@@ -48,7 +56,7 @@ public class LoggingActivity extends AppCompatActivity {
         AbstractDAOFactory abstractDAOFactory = new SQLiteDAOFactory();
         UserDAO userDAO = abstractDAOFactory.getUserDAO();
 
-        boolean isExists = userDAO.loginUserByLogAndPass(loginText, passwordText);
+        boolean isExists = userDAO.loginUserByLogAndPass(dbHelper, loginText, passwordText);
 
         if(isExists = false){
             Toast.makeText(LoggingActivity.this, "Successfully logging! Welcome, " + loginText, Toast.LENGTH_SHORT).show();
