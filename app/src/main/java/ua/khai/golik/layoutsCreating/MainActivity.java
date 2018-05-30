@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
     public void accessDBManagementOnClick(View view){
         clickNum++;
 
-        if(clickNum == 5){
+        if(clickNum % 5 == 0){
             secretEditText.setVisibility(View.VISIBLE);
             secretButton.setVisibility(View.VISIBLE);
         }
