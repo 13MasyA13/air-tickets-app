@@ -111,17 +111,17 @@
                 android:layout_height="wrap_content"
                 android:text="Business Class" />
 
-            <TextView
-                android:id="@+id/priceLabel"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Price" />
-
             <Button
                 android:id="@+id/countPriceButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Count price" />
+
+            <TextView
+                android:id="@+id/priceLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Price" />
 
             <Button
                 android:id="@+id/makeOrderButton"
