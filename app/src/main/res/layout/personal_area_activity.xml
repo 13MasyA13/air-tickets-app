@@ -14,7 +14,8 @@
         android:layout_marginTop="8dp"
         android:text="Make Order"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/newIcon" />
+        app:layout_constraintTop_toBottomOf="@+id/newIcon"
+        android:onClick="makeOrderActivityOnClick"/>
 
     <Button
         android:id="@+id/ordersButton"
@@ -24,7 +25,8 @@
         android:layout_marginTop="8dp"
         android:text="My Booked Tickets"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tiketsImage" />
+        app:layout_constraintTop_toBottomOf="@+id/tiketsImage"
+        android:onClick="myBookedTicketsActivityOnClick"/>
 
     <Button
         android:id="@+id/logOutButton"
@@ -57,7 +59,8 @@
         android:layout_marginTop="8dp"
         android:text="Help"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/helpImage" />
+        app:layout_constraintTop_toBottomOf="@+id/helpImage"
+        android:onClick="helpActivityOnClick"/>
 
     <Button
         android:id="@+id/aboutApp"
@@ -67,7 +70,8 @@
         android:layout_marginTop="8dp"
         android:text="About app"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/infoIcon" />
+        app:layout_constraintTop_toBottomOf="@+id/infoIcon"
+        android:onClick="aboutActivityOnClick"/>
 
     <ImageView
         android:id="@+id/tiketsImage"
