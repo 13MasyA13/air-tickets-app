@@ -28,108 +28,106 @@
                 android:text="HeaderText" />
 
             <TextView
-                android:id="@+id/textView7"
+                android:id="@+id/firstDateLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:text="First Date" />
 
             <Button
-                android:id="@+id/button11"
+                android:id="@+id/chooseFirstDateButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Button" />
+                android:text="Choose First Date" />
 
             <TextView
-                android:id="@+id/textView8"
+                android:id="@+id/secondDateLabel"
                 android:layout_width="60dp"
                 android:layout_height="20dp"
-                android:text="TextView" />
+                android:text="Second Date" />
 
             <Button
-                android:id="@+id/button12"
+                android:id="@+id/chooseSecondDateButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Button" />
+                android:text="Choose Second Date" />
 
             <TextView
-                android:id="@+id/textView"
+                android:id="@+id/fromPlaceLabel"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:text="From" />
 
             <Spinner
-                android:id="@+id/spinner"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
-            <TextView
-                android:id="@+id/textView2"
+                android:id="@+id/fromSpinner"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:entries="@array/formPlaces"/>
+
+            <TextView
+                android:id="@+id/toPlaceLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="To" />
 
             <Spinner
-                android:id="@+id/spinner2"
+                android:id="@+id/toSpinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:entries="@array/toPlaces"/>
+
+            <TextView
+                android:id="@+id/adultsLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Adults" />
+
+            <SeekBar
+                android:id="@+id/adultsSeekBar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
             <TextView
-                android:id="@+id/textView3"
+                android:id="@+id/childrenLabel"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:text="Children" />
 
             <SeekBar
-                android:id="@+id/seekBar"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
-            <TextView
-                android:id="@+id/textView4"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="TextView" />
-
-            <SeekBar
-                android:id="@+id/seekBar2"
+                android:id="@+id/childrenSeekBar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
             <RadioButton
-                android:id="@+id/radioButton"
+                android:id="@+id/economClassRadioButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="RadioButton" />
+                android:checked="true"
+                android:enabled="true"
+                android:text="Econom Class" />
 
             <RadioButton
-                android:id="@+id/radioButton2"
+                android:id="@+id/businessClassRadioButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="RadioButton" />
+                android:text="Business Class" />
 
             <TextView
-                android:id="@+id/textView5"
+                android:id="@+id/priceLabel"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:text="Price" />
 
             <Button
-                android:id="@+id/button5"
+                android:id="@+id/countPriceButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Button" />
-
-            <CheckBox
-                android:id="@+id/checkBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="CheckBox" />
+                android:text="Count price" />
 
             <Button
-                android:id="@+id/button6"
+                android:id="@+id/makeOrderButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Button" />
+                android:text="Make Order" />
 
         </LinearLayout>
     </ScrollView>
