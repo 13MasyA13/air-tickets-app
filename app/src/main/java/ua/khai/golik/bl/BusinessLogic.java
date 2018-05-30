@@ -52,26 +52,40 @@ public class BusinessLogic implements CountFinalOrderPrice{
     public double countPrice(Order order){
         double answ = 0;
 
-        // TODO fucking regex
+        double adultPrice, childrenPrice = 0;
 
-        //long countOfDays = countDays();
-        double defPrice = 0;
+        long countOfDays = countDays(order);
 
-        double adults_price, children_price = 0;
+        double classOfSeats = classOfSeats(order);
+        double fromPlaceCount = countPriceForFromPlace(order);
+        double toPlaceCount = countPriceForToPlace(order);
+        int adultsCount = order.getCount_of_adults();
+        int childrenCount = order.getCount_of_children();
 
+        adultPrice = toPlaceCount * countOfDays * fromPlaceCount * classOfSeats * adultsCount * ADULT_COEFF;
+        childrenPrice = toPlaceCount * countOfDays * fromPlaceCount * classOfSeats * childrenCount * CHILDREN_COEFF;
+
+        answ = adultPrice + childrenPrice;
 
         return answ;
     }
 
+    // TODO fucking regex
+
     @Override
-    public long countDays(int[] firstDateMas, int[] secondDateMas) {
+    public long countDays(Order order) {
         long answer, answerMilliSeconds = 0;
 
+        String firstDateString = order.getFirst_date();
+        String secondDateString = order.getSecond_date();
+
+        int[] firstDateMas, secondDateMas;
+
         Calendar firstDate = Calendar.getInstance();
-        firstDate.set(firstDateMas[2], firstDateMas[1], firstDateMas[0]);
+        //firstDate.set(firstDateMas[2], firstDateMas[1], firstDateMas[0]);
 
         Calendar secondDate = Calendar.getInstance();
-        secondDate.set(secondDateMas[2], secondDateMas[1], secondDateMas[0]);
+        //secondDate.set(secondDateMas[2], secondDateMas[1], secondDateMas[0]);
 
         long d1 = firstDate.getTimeInMillis();
         long d2 = secondDate.getTimeInMillis();
@@ -84,22 +98,101 @@ public class BusinessLogic implements CountFinalOrderPrice{
     }
 
     @Override
-    public boolean classOfSeats(String classOfSeats) {
-        return false;
+    public double classOfSeats(Order order) {
+        double answ = 0;
+
+        boolean b = order.isBusinessClass();
+
+        if(b == true){
+            answ = BUSINESS_CLASS_KOEFF;
+        } else{
+            answ = ECONOM_CLASS_KOEFF;
+        }
+
+        return answ;
     }
 
     @Override
-    public int[] regexStringToDataMass(String data) {
-        return new int[0];
+    public double countPriceForToPlace(Order order) {
+        double answ = 0;
+
+        String toPlace = order.getTo_place();
+
+        switch (toPlace){
+
+            case"Sharm El Sheikh":
+                answ = sharmPrice;
+                break;
+
+            case"Kairo":
+                answ = kairoPrice;
+                break;
+
+            case"Kemer":
+                answ = kemerPrice;
+                break;
+
+            case"Antalya":
+                answ = antalyaPrice;
+                break;
+
+            case"Menton":
+                answ = mentonPrice;
+                break;
+
+            case"Nerja":
+                answ = nerjaPrice;
+                break;
+
+            case"Biarritz":
+                answ = biarritzPrice;
+                break;
+
+            case"San Sebastian":
+                answ = sanSebastianPrice;
+                break;
+
+            case"Formentera":
+                answ = formentaraPrice;
+                break;
+
+            case"Porto Santo":
+                answ = portoSantoPrice;
+                break;
+
+            case"Viareggio":
+                answ = viareggioPrice;
+                break;
+
+            case"Playa Blanca":
+                answ = playaBlancaPrice;
+                break;
+        }
+
+        return answ;
     }
 
     @Override
-    public double countPriceForToPlace(String toPlace) {
-        return 0;
-    }
+    public double countPriceForFromPlace(Order order) {
+        double answ = 0;
 
-    @Override
-    public double countPlacePrice(String place) {
-        return 0;
+        String fromPlace = order.getFrom_place();
+
+        switch (fromPlace){
+
+            case"Kharkiv":
+                answ = KHARKIV_KOEFF;
+                break;
+
+            case"Kiev":
+                answ = KIEV_KOEFF;
+                break;
+
+            case"Odessa":
+                answ = ODESSA_KOEFF;
+                break;
+        }
+
+        return answ;
     }
 }

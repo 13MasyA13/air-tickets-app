@@ -6,13 +6,12 @@ public interface CountFinalOrderPrice {
 
     double countPrice(Order order);
 
-    long countDays(int[] firstDateMas, int[] secondDateMas);
+    long countDays(Order order);
 
-    boolean classOfSeats(String classOfSeats);
+    double classOfSeats(Order order);
 
-    int[] regexStringToDataMass(String data);
+    double countPriceForToPlace(Order order);
 
-    double countPriceForToPlace(String toPlace);
+    double countPriceForFromPlace(Order order);
 
-    double countPlacePrice(String place);
 }
