@@ -43,7 +43,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String COUNT_OF_SEATS = "count_of_seats";
 
     public DBHelper(Context context){
-        super(context, DB_NAME, null, 18);
+        super(context, DB_NAME, null, 21);
     }
 
     @Override
@@ -61,6 +61,12 @@ public class DBHelper extends SQLiteOpenHelper {
                 "'from_place' TEXT NOT NULL, 'to_place' TEXT NOT NULL, 'price' INTEGER NOT NULL, 'count_of_adults' INTEGER NOT NULL, " +
                 "'count_of_children' INTEGER NOT NULL, 'count_of_seats' INTEGER NOT NULL)");
 
+        // CREATION OF DEFAULT USER
+
+        db.execSQL("INSERT INTO users ( " + DBHelper.USER_FIRST_NAME + " , " + DBHelper.USER_LAST_NAME + " , " +
+                DBHelper.USER_LOGIN + " , " + DBHelper.USER_PASSWORD + " , " + DBHelper.USER_FIRST_PHONE_NUMBER + " , " +
+                DBHelper.USER_SECOND_PHONE_NUMBER + " , " + DBHelper.USER_BIRTH_DATE + " , " + DBHelper.USER_EMAIL + " ) " +
+                " VALUES ('Test', 'Test', 'test', '123', '00000', '00000', '31/12/1900', 'test@test.com')");
     }
 
     @Override
