@@ -24,30 +24,31 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="textPersonName"
-                android:text="First Name" />
+                android:hint="First Name"
+                android:inputType="textPersonName" />
 
             <EditText
                 android:id="@+id/lastName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="textPersonName"
-                android:text="Last Name" />
+                android:hint="Last Name"
+                android:inputType="textPersonName" />
 
             <EditText
                 android:id="@+id/login"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="textPersonName"
-                android:text="Login" />
+                android:hint="Login"
+                android:inputType="textPersonName" />
 
             <EditText
                 android:id="@+id/password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
+                android:hint="Pasword"
                 android:inputType="textPassword" />
 
             <EditText
@@ -55,8 +56,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="phone"
-                android:text="FirstPhone" />
+                android:hint="First Phone Number"
+                android:inputType="phone" />
 
             <TextView
                 android:id="@+id/secondPhoneNotRequiredLabel"
@@ -69,8 +70,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="phone"
-                android:text="Second Phone" />
+                android:hint="Second Phone Number"
+                android:inputType="phone" />
 
             <TextView
                 android:id="@+id/birthdayLabel"
@@ -90,8 +91,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="textEmailAddress"
-                android:text="Email" />
+                android:hint="Email"
+                android:inputType="textEmailAddress" />
 
             <Button
                 android:id="@+id/registerButton"
