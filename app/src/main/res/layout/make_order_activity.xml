@@ -81,10 +81,17 @@
                 android:layout_height="wrap_content"
                 android:text="Adults" />
 
+            <TextView
+                android:id="@+id/adultsBarValue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="0" />
+
             <SeekBar
                 android:id="@+id/adultsSeekBar"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:max="5"/>
 
             <TextView
                 android:id="@+id/childrenLabel"
@@ -92,10 +99,17 @@
                 android:layout_height="wrap_content"
                 android:text="Children" />
 
+            <TextView
+                android:id="@+id/childrenBarValue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="0" />
+
             <SeekBar
                 android:id="@+id/childrenSeekBar"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:max="5"/>
 
             <RadioButton
                 android:id="@+id/economClassRadioButton"
