@@ -43,7 +43,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String COUNT_OF_SEATS = "count_of_seats";
 
     public DBHelper(Context context){
-        super(context, DB_NAME, null, 10);
+        super(context, DB_NAME, null, 18);
     }
 
     @Override
@@ -51,9 +51,9 @@ public class DBHelper extends SQLiteOpenHelper {
 
         // CREATION OF USER_TABLE
 
-        db.execSQL("CREATE TABLE 'users' ('id' INTEGER PRIMARY KEY AUTOINCREMENT ,'first_name' TEXT NOT NULL, " +
+        db.execSQL("CREATE TABLE 'users' ('id' INTEGER PRIMARY KEY AUTOINCREMENT,'first_name' TEXT NOT NULL, " +
                 "'last_name' TEXT NOT NULL, 'login' TEXT NOT NULL, 'password' TEXT NOT NULL, 'first_phone_number' TEXT NOT NULL, " +
-                "'secont_phone_number' TEXT, 'birth_date' TEXT NOT NULL, 'email' TEXT NOT NULL)");
+                "'second_phone_number' TEXT, 'user_birth_date' TEXT NOT NULL, 'email' TEXT NOT NULL)");
 
         // CREATION OF ORDERS_TABLE
 

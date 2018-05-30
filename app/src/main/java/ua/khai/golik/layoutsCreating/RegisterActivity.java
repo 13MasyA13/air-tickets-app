@@ -27,6 +27,8 @@ public class RegisterActivity extends AppCompatActivity implements Validators {
 
     public static TextView dateTextView;
 
+    public static String login, name = "";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -92,8 +94,8 @@ public class RegisterActivity extends AppCompatActivity implements Validators {
 
                 if(b == true){
                     Toast.makeText(RegisterActivity.this, "You are successfully registered! Please login into your account!", Toast.LENGTH_LONG);
-                    Intent loginActivity = new Intent("main.logging");
-                    startActivity(loginActivity);
+                    Intent personalArea = new Intent(this, PersonalAreaActivity.class);
+                    startActivity(personalArea);
                 } else{
                     Toast.makeText(RegisterActivity.this, "App Fatal Error!!!!!!!!", Toast.LENGTH_LONG);
                 }

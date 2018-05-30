@@ -11,6 +11,8 @@ public interface UserDBOperations {
 
     public User getUserByID(DBHelper dbHelper, int id);
 
+    public int getUserIdByUserLogin(DBHelper dbHelper, String login);
+
     public boolean loginUserByLogAndPass(DBHelper dbHelper,String login, String password);
 
     public void deleteAllData(DBHelper dbHelper);

@@ -12,33 +12,31 @@ import java.util.List;
 import ua.khai.golik.db.DBHelper;
 import ua.khai.golik.db.dao.interfaces.UserDBOperations;
 import ua.khai.golik.entities.User;
+import ua.khai.golik.layoutsCreating.RegisterActivity;
 
 public class UserDAO implements UserDBOperations{
 
     @Override
     public boolean loginUserByLogAndPass(DBHelper dbHelper, String login, String password) {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
-        Cursor cursor = db.rawQuery("SELECT login, password FROM " + DBHelper.USER_TABLE
-                + " WHERE login = " + login + " AND password = " + password, null);
+        Cursor cursor = db.query(DBHelper.USER_TABLE, new String[]{DBHelper.USER_LOGIN, DBHelper.USER_PASSWORD}, "login = ? AND password = ?",
+                new String[]{login, password}, null, null, null);
 
         int logInd = cursor.getColumnIndex(DBHelper.USER_LOGIN);
         int pasInd = cursor.getColumnIndex(DBHelper.USER_PASSWORD);
 
-        String log = cursor.getString(logInd);
-        String pass = cursor.getString(pasInd);
-
-        if(log.equals("") || log == null){
+        if(cursor.getCount() <= 0){
             return false;
-        } else if(pass.equals("") || pass == null){
-            return false;
+        } else{
+            return true;
         }
-
-        return true;
     }
 
     @Override
     public boolean insertNewUser(DBHelper dbHelper, User user) {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
+
+        /*
         ContentValues contentValues = new ContentValues();
 
         contentValues.put(DBHelper.USER_FIRST_NAME, user.getFirst_name());
@@ -51,12 +49,20 @@ public class UserDAO implements UserDBOperations{
         contentValues.put(DBHelper.USER_EMAIL, user.getEmail());
 
         long res = db.insert(DBHelper.USER_TABLE, null, contentValues);
+        */
 
-        if(res > 0){
-            return true;
-        } else {
-            return false;
-        }
+        String SQL = "INSERT INTO users ( " + DBHelper.USER_FIRST_NAME + " , " + DBHelper.USER_LAST_NAME + " , " +
+                DBHelper.USER_LOGIN + " , " + DBHelper.USER_PASSWORD + " , " + DBHelper.USER_FIRST_PHONE_NUMBER + " , " +
+                DBHelper.USER_SECOND_PHONE_NUMBER + " , " + DBHelper.USER_BIRTH_DATE + " , " + DBHelper.USER_EMAIL + " ) " +
+                " VALUES ( " + "\'" + user.getFirst_name() + "\'" + " , " + "\'" + user.getLast_name() + "\'" + " , " + "\'" +
+                user.getLogin() + "\'" + " , " + "\'" + user.getPassword() + "\'" + " , " + "\'" + user.getFirst_phone_number() + "\'" +
+                " , " + "\'" + user.getSecond_phone_number() + "\'" + " , " + "\'" + user.getBirthDate() + "\'" + " , " + "\'" + user.getEmail() + "\'" + ")";
+        db.execSQL(SQL);
+
+        RegisterActivity.login = user.getLogin();
+        RegisterActivity.name = user.getFirst_name();
+
+        return true;
     }
 
     @Override
@@ -143,6 +149,20 @@ public class UserDAO implements UserDBOperations{
                 break;
             }
         }
+
+        return answ;
+    }
+
+    @Override
+    public int getUserIdByUserLogin(DBHelper dbHelper, String login) {
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+        Cursor cursor = db.query(DBHelper.USER_TABLE, new String[]{DBHelper.USER_ID}, "login = ?", new String[]{login}, null, null, null);
+
+        int idIndex = cursor.getColumnIndex(DBHelper.USER_ID);
+
+        cursor.moveToFirst();
+
+        int answ = cursor.getInt(idIndex);
 
         return answ;
     }

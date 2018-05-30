@@ -33,8 +33,6 @@ public class LoggingActivity extends AppCompatActivity {
     }
 
     public void onLoginClick(View view){
-        Intent personalArea = new Intent("personal-area");
-
         login = findViewById(R.id.login);
         password = findViewById(R.id.password);
 
@@ -58,8 +56,9 @@ public class LoggingActivity extends AppCompatActivity {
 
         boolean isExists = userDAO.loginUserByLogAndPass(dbHelper, loginText, passwordText);
 
-        if(isExists = false){
+        if(isExists == true){
             Toast.makeText(LoggingActivity.this, "Successfully logging! Welcome, " + loginText, Toast.LENGTH_SHORT).show();
+            Intent personalArea = new Intent("personal.area");
             startActivity(personalArea);
         } else{
             Toast.makeText(LoggingActivity.this, "User with current inputed data hasn't exists, please try again", Toast.LENGTH_LONG).show();
