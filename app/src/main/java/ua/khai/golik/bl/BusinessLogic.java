@@ -1,22 +1,19 @@
 package ua.khai.golik.bl;
 
 import java.util.Calendar;
-import java.util.Date;
-import java.util.GregorianCalendar;
 
 import ua.khai.golik.bl.interfaces.CountFinalOrderPrice;
 import ua.khai.golik.entities.Order;
 
 public class BusinessLogic implements CountFinalOrderPrice{
 
-    // TODO price formula
+    // Price formula -> PRICE = CHILDREN_PRICE + ADULTS_PRICE
 
-    // Price formula -> PRICE = DEF_PRICE * DAYS * CITY_COEFF * ()
+    // CHILDREN_PRICE = DEF_PRICE * DAYS * CITY_COEFF * CLASS_OF_PLACES_COEFF * CHILDREN_COUNT * CHILDREN_COEFF
+    // ADULTS_PRICE = DEF_PRICE * DAYS * CITY_COEFF * CLASS_OF_PLACES_COEFF * ADULTS_COUNT * ADULTS_COEFF
 
 
     // Coefficients for formula
-
-
 
     // Type of passengers coefficients
 
@@ -49,16 +46,21 @@ public class BusinessLogic implements CountFinalOrderPrice{
     private static final double viareggioPrice = 470;
     private static final double playaBlancaPrice = 940;
 
-
-
     // TODO countPrice() method
 
     @Override
     public double countPrice(Order order){
         double answ = 0;
 
+        // TODO fucking regex
 
-        return 0;
+        //long countOfDays = countDays();
+        double defPrice = 0;
+
+        double adults_price, children_price = 0;
+
+
+        return answ;
     }
 
     @Override
@@ -79,5 +81,25 @@ public class BusinessLogic implements CountFinalOrderPrice{
         answer = answerMilliSeconds * 1000 * 60 * 60 * 24;
 
         return answer;
+    }
+
+    @Override
+    public boolean classOfSeats(String classOfSeats) {
+        return false;
+    }
+
+    @Override
+    public int[] regexStringToDataMass(String data) {
+        return new int[0];
+    }
+
+    @Override
+    public double countPriceForToPlace(String toPlace) {
+        return 0;
+    }
+
+    @Override
+    public double countPlacePrice(String place) {
+        return 0;
     }
 }
