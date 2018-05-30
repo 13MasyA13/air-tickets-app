@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="344dp"
+        android:layout_height="551dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/dbOperationsLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="DB Operations" />
+
+            <TextView
+                android:id="@+id/usersTableLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Users Table" />
+
+            <Button
+                android:id="@+id/getAllUsersDBManagementButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Get All Users" />
+
+            <ListView
+                android:id="@+id/listOfAllUsers"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <EditText
+                android:id="@+id/usersLoginForUsersEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="User's login"
+                android:inputType="textPersonName" />
+
+            <Button
+                android:id="@+id/getUserByLoginDBManagementButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Get user by login" />
+
+            <Button
+                android:id="@+id/deleteUserTableDBManagementButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Delete All Users Table Data" />
+
+            <TextView
+                android:id="@+id/ordersTableLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Orders Table" />
+
+            <Button
+                android:id="@+id/getAllOrdersDBManagementButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Get All Orders" />
+
+            <ListView
+                android:id="@+id/listOfAllOrders"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            </ListView>
+
+            <EditText
+                android:id="@+id/usersLoginForOrdersEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="User's login"
+                android:inputType="textPersonName" />
+
+            <Button
+                android:id="@+id/getOrderByLoginDBManagementButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Get Order By Login" />
+
+            <Button
+                android:id="@+id/deleteOrderTableDBManagementButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Delet All Orders Table Data" />
+
+        </LinearLayout>
+    </ScrollView>
+</android.support.constraint.ConstraintLayout>
