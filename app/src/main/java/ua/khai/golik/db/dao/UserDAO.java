@@ -34,7 +34,7 @@ public class UserDAO implements UserDBOperations{
     public boolean insertNewUser(DBHelper dbHelper, User user) {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
 
-        String SQL = "INSERT INTO users ( " + DBHelper.USER_FIRST_NAME + " , " + DBHelper.USER_LAST_NAME + " , " +
+        final String SQL = "INSERT INTO users ( " + DBHelper.USER_FIRST_NAME + " , " + DBHelper.USER_LAST_NAME + " , " +
                 DBHelper.USER_LOGIN + " , " + DBHelper.USER_PASSWORD + " , " + DBHelper.USER_FIRST_PHONE_NUMBER + " , " +
                 DBHelper.USER_SECOND_PHONE_NUMBER + " , " + DBHelper.USER_BIRTH_DATE + " , " + DBHelper.USER_EMAIL + " ) " +
                 " VALUES ( " + "\'" + user.getFirst_name() + "\'" + " , " + "\'" + user.getLast_name() + "\'" + " , " + "\'" +

@@ -15,26 +15,16 @@ public class OrderDAO implements OrderDBOperations{
 
     @Override
     public boolean insertNewOrder(DBHelper dbHelper, Order order) {
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
 
-        SQLiteDatabase sqLiteDatabase = dbHelper.getWritableDatabase();
-        ContentValues contentValues = new ContentValues();
-
-        contentValues.put(DBHelper.FIRST_DATE, order.getFirst_date());
-        contentValues.put(DBHelper.SECOND_DATE, order.getSecond_date());
-        contentValues.put(DBHelper.FROM_PLACE, order.getFrom_place());
-        contentValues.put(DBHelper.TO_PLACE, order.getTo_place());
-        contentValues.put(DBHelper.PRICE, order.getPrice());
-        contentValues.put(DBHelper.COUNT_OF_CHILDREN, order.getCount_of_children());
-        contentValues.put(DBHelper.COUNT_OF_ADULTS, order.getCount_of_adults());
-        contentValues.put(DBHelper.COUNT_OF_SEATS, order.getCount_of_seats());
-
-        long res = sqLiteDatabase.insert(DBHelper.ORDERS_TABLE, null, contentValues);
-
-        if(res != 0){
-            return true;
-        } else{
-            return false;
-        }
+        final String SQL = "INSERT INTO orders ( " + DBHelper.FIRST_DATE + " , " + DBHelper.SECOND_DATE + " , " +
+                DBHelper.FROM_PLACE + " , " + DBHelper.TO_PLACE + " , " + DBHelper.PRICE + " , " +
+                DBHelper.COUNT_OF_CHILDREN + " , " + DBHelper.COUNT_OF_ADULTS + " , " + DBHelper.COUNT_OF_SEATS + " ) " +
+                " VALUES ( " + "\'" + order.getFirst_date() + "\'" + " , " + "\'" + order.getSecond_date() + "\'" + " , " + "\'" +
+                order.getFrom_place() + "\'" + " , " + "\'" + order.getTo_place() + "\'" + " , " + "\'" + order.getPrice() + "\'" +
+                " , " + "\'" + order.getCount_of_children() + "\'" + " , " + "\'" + order.getCount_of_adults() + "\'" + " , " + "\'" + order.getCount_of_seats() + "\'" + ")";
+        db.execSQL(SQL);
+        return true;
     }
 
     @Override
