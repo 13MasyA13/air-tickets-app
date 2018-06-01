@@ -13,10 +13,8 @@ import ua.khai.golik.entities.Order;
 
 public class OrderDAO implements OrderDBOperations{
 
-    DBHelper dbHelper;
-
     @Override
-    public boolean insertNewOrder(Order order) {
+    public boolean insertNewOrder(DBHelper dbHelper, Order order) {
 
         SQLiteDatabase sqLiteDatabase = dbHelper.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -40,14 +38,14 @@ public class OrderDAO implements OrderDBOperations{
     }
 
     @Override
-    public void deleteOrderByID(int id) {
+    public void deleteOrderByID(DBHelper dbHelper, int id) {
         SQLiteDatabase sqLiteDatabase = dbHelper.getWritableDatabase();
         sqLiteDatabase.execSQL("DELETE * FROM " + DBHelper.ORDERS_TABLE
                 + " WHERE " + DBHelper.ORDER_ID + " = " + id, null);
     }
 
     @Override
-    public List<Order> getAllOrders() {
+    public List<Order> getAllOrders(DBHelper dbHelper) {
         SQLiteDatabase sqLiteDatabase = dbHelper.getWritableDatabase();
         List<Order> listOfAllOrders = new ArrayList<>();
         Cursor cursor = sqLiteDatabase.query(DBHelper.ORDERS_TABLE, null, null, null, null, null, null);
@@ -86,7 +84,7 @@ public class OrderDAO implements OrderDBOperations{
     }
 
     @Override
-    public void deleteAllData() {
+    public void deleteAllData(DBHelper dbHelper) {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         db.execSQL("delete from " + DBHelper.ORDERS_TABLE);
     }
