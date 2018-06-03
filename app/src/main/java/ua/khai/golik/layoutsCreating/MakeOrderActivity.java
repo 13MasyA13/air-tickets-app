@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.SeekBar;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import ua.golik.khai.air_tickets_app.R;
@@ -14,8 +15,8 @@ public class MakeOrderActivity extends AppCompatActivity {
     private static final String makeOrderActivity = "MakeOrderActivity";
 
     private SeekBar adultsSeekBar, childrenSeekBar;
-
-    private TextView adultsBarValue, childrenBarValue;
+    private TextView adultsBarValue, childrenBarValue, fromDateText, toDateText, priceValue;
+    private Spinner fromPlaceSpinner, toPlaceSpinner;
 
     public int childrenBarCount, adultsBarCount;
 
@@ -26,9 +27,15 @@ public class MakeOrderActivity extends AppCompatActivity {
 
         adultsBarValue = findViewById(R.id.adultsBarValue);
         childrenBarValue = findViewById(R.id.childrenBarValue);
+        fromDateText = findViewById(R.id.firstDateLabel);
+        toDateText = findViewById(R.id.secondDateLabel);
+        priceValue = findViewById(R.id.priceLabel);
 
         adultsSeekBar = findViewById(R.id.adultsSeekBar);
         childrenSeekBar = findViewById(R.id.childrenSeekBar);
+
+        fromPlaceSpinner = findViewById(R.id.fromSpinner);
+        toPlaceSpinner = findViewById(R.id.toSpinner);
 
         adultsSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
@@ -78,6 +85,15 @@ public class MakeOrderActivity extends AppCompatActivity {
     // TODO onMakeOrderClick()
 
     public void onMakeOrderClick(){
+        String firstDateValue = fromDateText.getText().toString();
+        String secondDateValue = toDateText.getText().toString();
+
+        //String fromPlace = fromPlaceSpinner.get...
+        //String toPlace = toPlaceSpinner.get...
+
+        int adultsCount = adultsBarCount;
+        int childrenCount = childrenBarCount;
+
 
     }
 }
