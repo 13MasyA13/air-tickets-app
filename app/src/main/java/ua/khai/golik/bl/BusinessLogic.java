@@ -9,8 +9,8 @@ public class BusinessLogic implements CountFinalOrderPrice{
 
     // Price formula -> PRICE = CHILDREN_PRICE + ADULTS_PRICE
 
-    // CHILDREN_PRICE = DEF_PRICE * DAYS * CITY_COEFF * CLASS_OF_PLACES_COEFF * CHILDREN_COUNT * CHILDREN_COEFF
-    // ADULTS_PRICE = DEF_PRICE * DAYS * CITY_COEFF * CLASS_OF_PLACES_COEFF * ADULTS_COUNT * ADULTS_COEFF
+    // CHILDREN_PRICE = DEF_PRICE + (PRICE_STEP * DAYS) * CITY_COEFF * CLASS_OF_PLACES_COEFF * CHILDREN_COUNT * CHILDREN_COEFF
+    // ADULTS_PRICE = DEF_PRICE + (PRICE_STEP * DAYS) * CITY_COEFF * CLASS_OF_PLACES_COEFF * ADULTS_COUNT * ADULTS_COEFF
 
 
     // Coefficients for formula
@@ -46,6 +46,21 @@ public class BusinessLogic implements CountFinalOrderPrice{
     private static final double viareggioPrice = 470;
     private static final double playaBlancaPrice = 940;
 
+    // Prices steps
+
+    private static final double sharmStepPrice = sharmPrice / 5;
+    private static final double kemerStepPrice = kemerPrice  / 5;
+    private static final double antalyaStepPrice = antalyaPrice / 5;
+    private static final double kairoStepPrice = kairoPrice / 5;
+    private static final double mentonStepPrice = mentonPrice / 5;
+    private static final double nerjaStepPrice = nerjaPrice / 5;
+    private static final double biarritzStepPrice = biarritzPrice / 5;
+    private static final double sanSebastianStepPrice = sanSebastianPrice / 5;
+    private static final double formentaraStepPrice = formentaraPrice / 5;
+    private static final double portoSantoStepPrice = portoSantoPrice / 5;
+    private static final double viareggioStepPrice = viareggioPrice / 5;
+    private static final double playaBlancaStepPrice = playaBlancaPrice / 5;
+
     // TODO countPrice() method
 
     @Override
@@ -59,6 +74,10 @@ public class BusinessLogic implements CountFinalOrderPrice{
         double classOfSeats = classOfSeats(order);
         double fromPlaceCount = countPriceForFromPlace(order);
         double toPlaceCount = countPriceForToPlace(order);
+
+        // TODO toPlace
+
+        double step = countStepPrice("");
         int adultsCount = order.getCount_of_adults();
         int childrenCount = order.getCount_of_children();
 
@@ -68,6 +87,11 @@ public class BusinessLogic implements CountFinalOrderPrice{
         answ = adultPrice + childrenPrice;
 
         return answ;
+    }
+
+    @Override
+    public double countStepPrice(String toPlace) {
+        return 0;
     }
 
     // TODO fucking regex
