@@ -17,11 +17,10 @@ public class UsersOrdersDAO implements UsersOrdersDBOperations{
         SQLiteDatabase db = dbHelper.getWritableDatabase();
 
         List<Order> listOfOrders = new ArrayList<>();
-        Cursor cursor = db.rawQuery("SELECT * FROM orders WHERE orders.user_id = users.user_id", null);
+        Cursor cursor = db.rawQuery("SELECT * FROM orders WHERE user_id = ?", new String[]{String.valueOf(user_id)});
 
         cursor.moveToFirst();
 
-        int id = cursor.getColumnIndex(DBHelper.ORDER_ID);
         int firstDate = cursor.getColumnIndex(DBHelper.FIRST_DATE);
         int secondDate = cursor.getColumnIndex(DBHelper.SECOND_DATE);
         int from = cursor.getColumnIndex(DBHelper.FROM_PLACE);
@@ -35,7 +34,6 @@ public class UsersOrdersDAO implements UsersOrdersDBOperations{
             while(cursor.moveToNext()){
                 Order order = new Order();
 
-                order.setId(cursor.getInt(id));
                 order.setFirst_date(cursor.getString(firstDate));
                 order.setSecond_date(cursor.getString(secondDate));
                 order.setFrom_place(cursor.getString(from));

@@ -1,7 +1,5 @@
 package ua.khai.golik.entities;
 
-import java.util.Date;
-
 public class Order {
 
     // Default constructor
@@ -12,10 +10,11 @@ public class Order {
 
     // Initial constructor
 
-    public Order(int id, String first_date, String second_date, double priceStep, double price,
+    public Order(int id, int user_id, String first_date, String second_date, double priceStep, double price,
                  int count_of_children, int count_of_adults, int count_of_seats,
                  boolean isBusinessClass, String from_place, String to_place){
         this.id = id;
+        this.user_id = user_id;
         this.first_date = first_date;
         this.second_date = second_date;
         this.priceStep = priceStep;
@@ -32,6 +31,7 @@ public class Order {
     // Class's fields
 
     private int id;
+    private int user_id;
     private String first_date;
     private String second_date;
     private String from_place;
@@ -51,6 +51,14 @@ public class Order {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public int getUser_id() {
+        return user_id;
+    }
+
+    public void setUser_id(int user_id) {
+        this.user_id = user_id;
     }
 
     public String getFirst_date() {

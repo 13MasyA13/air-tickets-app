@@ -33,6 +33,7 @@ public class DBHelper extends SQLiteOpenHelper {
     // Columns of the table 'orders'
 
     public static final String ORDER_ID = "id";
+    public static final String USER_ID_IN_ORDER = "user_id";
     public static final String FIRST_DATE = "first_date";
     public static final String SECOND_DATE = "second_date";
     public static final String FROM_PLACE = "from_place";
@@ -43,7 +44,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String COUNT_OF_SEATS = "count_of_seats";
 
     public DBHelper(Context context){
-        super(context, DB_NAME, null, 23);
+        super(context, DB_NAME, null, 28);
     }
 
     @Override
@@ -57,8 +58,9 @@ public class DBHelper extends SQLiteOpenHelper {
 
         // CREATION OF ORDERS_TABLE
 
-        db.execSQL("CREATE TABLE 'orders' ('id' INTEGER PRIMARY KEY AUTOINCREMENT, 'first_date' TEXT NOT NULL, 'second_date' TEXT NOT NULL, " +
-                "'from_place' TEXT NOT NULL, 'to_place' TEXT NOT NULL, 'price' INTEGER NOT NULL, 'count_of_adults' INTEGER NOT NULL, " +
+        db.execSQL("CREATE TABLE 'orders' ('id' INTEGER PRIMARY KEY AUTOINCREMENT, 'user_id' INTEGER NOT NULL, " +
+                "'first_date' TEXT NOT NULL, 'second_date' TEXT NOT NULL, " + "'from_place' TEXT NOT NULL, 'to_place' TEXT NOT NULL, " +
+                "'price' INTEGER NOT NULL, 'count_of_adults' INTEGER NOT NULL, " +
                 "'count_of_children' INTEGER NOT NULL, 'count_of_seats' INTEGER NOT NULL)");
 
         // CREATION OF DEFAULT USER
@@ -70,10 +72,10 @@ public class DBHelper extends SQLiteOpenHelper {
 
         // CREATION OF DEFAULT USER'S ORDER
 
-        db.execSQL("INSERT INTO orders ( " + DBHelper.FIRST_DATE + " , " + DBHelper.SECOND_DATE + " , " +
+        db.execSQL("INSERT INTO orders ( " + DBHelper.USER_ID_IN_ORDER + " , " + DBHelper.FIRST_DATE + " , " + DBHelper.SECOND_DATE + " , " +
                 DBHelper.FROM_PLACE + " , " + DBHelper.TO_PLACE + " , " + DBHelper.PRICE + " , " +
                 DBHelper.COUNT_OF_CHILDREN + " , " + DBHelper.COUNT_OF_ADULTS + " , " + DBHelper.COUNT_OF_SEATS + " ) " +
-                " VALUES ('25/06/2018', '31/07/2018', 'Kharkiv', 'Sharm El Sheikh', 500, 2, 0, 2)");
+                " VALUES (1, '25/06/2018', '31/07/2018', 'Kharkiv', 'Sharm El Sheikh', 500, 2, 0, 2)");
     }
 
     @Override
