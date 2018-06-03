@@ -43,7 +43,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String COUNT_OF_SEATS = "count_of_seats";
 
     public DBHelper(Context context){
-        super(context, DB_NAME, null, 21);
+        super(context, DB_NAME, null, 23);
     }
 
     @Override
@@ -57,7 +57,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
         // CREATION OF ORDERS_TABLE
 
-        db.execSQL("CREATE TABLE 'orders' ('id' INTEGER PRIMARY KEY AUTOINCREMENT, 'first_date' TEXT NOT NULL, 'second date' TEXT NOT NULL, " +
+        db.execSQL("CREATE TABLE 'orders' ('id' INTEGER PRIMARY KEY AUTOINCREMENT, 'first_date' TEXT NOT NULL, 'second_date' TEXT NOT NULL, " +
                 "'from_place' TEXT NOT NULL, 'to_place' TEXT NOT NULL, 'price' INTEGER NOT NULL, 'count_of_adults' INTEGER NOT NULL, " +
                 "'count_of_children' INTEGER NOT NULL, 'count_of_seats' INTEGER NOT NULL)");
 
@@ -66,7 +66,14 @@ public class DBHelper extends SQLiteOpenHelper {
         db.execSQL("INSERT INTO users ( " + DBHelper.USER_FIRST_NAME + " , " + DBHelper.USER_LAST_NAME + " , " +
                 DBHelper.USER_LOGIN + " , " + DBHelper.USER_PASSWORD + " , " + DBHelper.USER_FIRST_PHONE_NUMBER + " , " +
                 DBHelper.USER_SECOND_PHONE_NUMBER + " , " + DBHelper.USER_BIRTH_DATE + " , " + DBHelper.USER_EMAIL + " ) " +
-                " VALUES ('Test', 'Test', 'test', '123', '00000', '00000', '31/12/1900', 'test@test.com')");
+                " VALUES ('John', 'Burn', 'test', '123', '00000', '00000', '31/12/1900', 'jb@test.com')");
+
+        // CREATION OF DEFAULT USER'S ORDER
+
+        db.execSQL("INSERT INTO orders ( " + DBHelper.FIRST_DATE + " , " + DBHelper.SECOND_DATE + " , " +
+                DBHelper.FROM_PLACE + " , " + DBHelper.TO_PLACE + " , " + DBHelper.PRICE + " , " +
+                DBHelper.COUNT_OF_CHILDREN + " , " + DBHelper.COUNT_OF_ADULTS + " , " + DBHelper.COUNT_OF_SEATS + " ) " +
+                " VALUES ('25/06/2018', '31/07/2018', 'Kharkiv', 'Sharm El Sheikh', 500, 2, 0, 2)");
     }
 
     @Override
