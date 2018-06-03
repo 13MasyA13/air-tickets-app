@@ -12,14 +12,12 @@ import ua.khai.golik.entities.Order;
 
 public class UsersOrdersDAO implements UsersOrdersDBOperations{
 
-    DBHelper dbHelper;
-
     @Override
-    public List<Order> getOrdersByUserID(int user_id) {
+    public List<Order> getOrdersByUserID(DBHelper dbHelper, int user_id) {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
 
         List<Order> listOfOrders = new ArrayList<>();
-        Cursor cursor = db.rawQuery("SELECT * FROM orders WHERE orders.user_id = users_orders.user_id", null);
+        Cursor cursor = db.rawQuery("SELECT * FROM orders WHERE orders.user_id = users.user_id", null);
 
         cursor.moveToFirst();
 

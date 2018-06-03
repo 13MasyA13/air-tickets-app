@@ -22,7 +22,8 @@ public class OrderDAO implements OrderDBOperations{
                 DBHelper.COUNT_OF_CHILDREN + " , " + DBHelper.COUNT_OF_ADULTS + " , " + DBHelper.COUNT_OF_SEATS + " ) " +
                 " VALUES ( " + "\'" + order.getFirst_date() + "\'" + " , " + "\'" + order.getSecond_date() + "\'" + " , " + "\'" +
                 order.getFrom_place() + "\'" + " , " + "\'" + order.getTo_place() + "\'" + " , " + "\'" + order.getPrice() + "\'" +
-                " , " + "\'" + order.getCount_of_children() + "\'" + " , " + "\'" + order.getCount_of_adults() + "\'" + " , " + "\'" + order.getCount_of_seats() + "\'" + ")";
+                " , " + "\'" + order.getCount_of_children() + "\'" + " , " + "\'" + order.getCount_of_adults() + "\'" + " , " + "\'"
+                + order.getCount_of_seats() + "\'" + ")";
         db.execSQL(SQL);
         return true;
     }
