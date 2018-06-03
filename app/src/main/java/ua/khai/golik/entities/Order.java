@@ -12,12 +12,13 @@ public class Order {
 
     // Initial constructor
 
-    public Order(int id, String first_date, String second_date, double price,
+    public Order(int id, String first_date, String second_date, double priceStep, double price,
                  int count_of_children, int count_of_adults, int count_of_seats,
                  boolean isBusinessClass, String from_place, String to_place){
         this.id = id;
         this.first_date = first_date;
         this.second_date = second_date;
+        this.priceStep = priceStep;
         this.price = price;
         this.count_of_children = count_of_children;
         this.count_of_adults = count_of_adults;
@@ -35,6 +36,7 @@ public class Order {
     private String second_date;
     private String from_place;
     private String to_place;
+    private double priceStep;
     private double price;
     private int count_of_children;
     private int count_of_adults;
@@ -65,6 +67,14 @@ public class Order {
 
     public void setSecond_date(String second_date) {
         this.second_date = second_date;
+    }
+
+    public double getPriceStep() {
+        return priceStep;
+    }
+
+    public void setPriceStep(double priceStep) {
+        this.priceStep = priceStep;
     }
 
     public double getPrice() {
