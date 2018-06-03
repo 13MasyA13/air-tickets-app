@@ -94,8 +94,6 @@ public class BusinessLogic implements CountFinalOrderPrice{
         return 0;
     }
 
-    // TODO fucking regex
-
     @Override
     public long countDays(Order order) {
         long answer, answerMilliSeconds = 0;
@@ -103,13 +101,22 @@ public class BusinessLogic implements CountFinalOrderPrice{
         String firstDateString = order.getFirst_date();
         String secondDateString = order.getSecond_date();
 
-        int[] firstDateMas, secondDateMas;
+        String[] masOfFirstNumbers = firstDateString.split("/");
+        String[] masOfSecondNumbers = secondDateString.split("/");
+
+        int[] firstDateMas = new int[2];
+        int[] secondDateMas = new int[2];
+
+        for(int i = 0; i < firstDateMas.length; i++){
+            firstDateMas[i] = Integer.parseInt(masOfFirstNumbers[i]);
+            secondDateMas[i] = Integer.parseInt(masOfSecondNumbers[i]);
+        }
 
         Calendar firstDate = Calendar.getInstance();
-        //firstDate.set(firstDateMas[2], firstDateMas[1], firstDateMas[0]);
+        firstDate.set(firstDateMas[2], firstDateMas[1], firstDateMas[0]);
 
         Calendar secondDate = Calendar.getInstance();
-        //secondDate.set(secondDateMas[2], secondDateMas[1], secondDateMas[0]);
+        secondDate.set(secondDateMas[2], secondDateMas[1], secondDateMas[0]);
 
         long d1 = firstDate.getTimeInMillis();
         long d2 = secondDate.getTimeInMillis();
