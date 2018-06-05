@@ -4,19 +4,25 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.RadioButton;
 import android.widget.SeekBar;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import ua.golik.khai.air_tickets_app.R;
+import ua.khai.golik.bl.BusinessLogic;
+import ua.khai.golik.bl.interfaces.MakeOrderValidation;
+import ua.khai.golik.entities.Order;
 
-public class MakeOrderActivity extends AppCompatActivity {
+public class MakeOrderActivity extends AppCompatActivity implements MakeOrderValidation{
 
     private static final String makeOrderActivity = "MakeOrderActivity";
 
     private SeekBar adultsSeekBar, childrenSeekBar;
     private TextView adultsBarValue, childrenBarValue, fromDateText, toDateText, priceValue;
     private Spinner fromPlaceSpinner, toPlaceSpinner;
+    private RadioButton economClass;
 
     public int childrenBarCount, adultsBarCount;
 
@@ -36,6 +42,8 @@ public class MakeOrderActivity extends AppCompatActivity {
 
         fromPlaceSpinner = findViewById(R.id.fromSpinner);
         toPlaceSpinner = findViewById(R.id.toSpinner);
+
+        economClass = findViewById(R.id.economClassRadioButton);
 
         adultsSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
@@ -84,16 +92,83 @@ public class MakeOrderActivity extends AppCompatActivity {
 
     // TODO onMakeOrderClick()
 
-    public void onMakeOrderClick(){
+    public void onMakeOrderClick(View view){
+
+        Order order = new Order();
+        BusinessLogic businessLogic = new BusinessLogic();
+        Intent currentIntent = getIntent();
+
+        // TODO getting user_id
+        //int user_id = currentInten.getIntExtra();
+
         String firstDateValue = fromDateText.getText().toString();
         String secondDateValue = toDateText.getText().toString();
 
-        //String fromPlace = fromPlaceSpinner.get...
-        //String toPlace = toPlaceSpinner.get...
+        String fromPlace = fromPlaceSpinner.getSelectedItem().toString();
+        String toPlace = toPlaceSpinner.getSelectedItem().toString();
 
         int adultsCount = adultsBarCount;
         int childrenCount = childrenBarCount;
 
+        boolean isBusinessClass;
 
+        if(economClass.isChecked() == true){
+            isBusinessClass = false;
+        } else{
+            isBusinessClass = true;
+        }
+
+        order.setFirst_date(firstDateValue);
+        order.setSecond_date(secondDateValue);
+        order.setFrom_place(fromPlace);
+        order.setTo_place(toPlace);
+        order.setCount_of_adults(adultsCount);
+        order.setCount_of_children(childrenCount);
+        order.setCount_of_seats(childrenCount + adultsCount);
+        order.setBusinessClass(isBusinessClass);
+
+        int validationResult = makeOrderValidation(order);
+
+        switch (validationResult){
+            case 0:
+                order.setPrice(businessLogic.countPrice(order));
+
+                priceValue.setText(Double.toString(order.getPrice()));
+                break;
+            case 1:
+                Toast.makeText(this,"You should choose first date!", Toast.LENGTH_LONG);
+                break;
+            case 2:
+                Toast.makeText(this,"You should choose second date!", Toast.LENGTH_LONG);
+                break;
+            case 3:
+                Toast.makeText(this,"Children count & adults count can't be = 0!", Toast.LENGTH_LONG);
+                break;
+
+        }
+
+    }
+
+    @Override
+    public int makeOrderValidation(Order order) {
+        int childrenCount = order.getCount_of_children();
+        int adultsCount = order.getCount_of_adults();
+
+        String firstDate = order.getFirst_date();
+        String secondDate = order.getSecond_date();
+
+        if(firstDate.equals("First Date")){
+            return 1;
+        }
+
+        if(secondDate.equals("Second Date")){
+            return 2;
+        }
+
+        if(childrenCount == 0 & adultsCount == 0){
+            return 3;
+        }
+
+        return 0;
     }
 }

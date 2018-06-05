@@ -9,14 +9,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import ua.golik.khai.air_tickets_app.R;
-import ua.khai.golik.bl.interfaces.Validators;
+import ua.khai.golik.bl.interfaces.RegistrationValidator;
 import ua.khai.golik.db.DBHelper;
 import ua.khai.golik.db.dao.AbstractDAOFactory;
 import ua.khai.golik.db.dao.SQLiteDAOFactory;
 import ua.khai.golik.db.dao.UserDAO;
 import ua.khai.golik.entities.User;
 
-public class RegisterActivity extends AppCompatActivity implements Validators {
+public class RegisterActivity extends AppCompatActivity implements RegistrationValidator {
 
     private static final String registerActivity = "RegisterActivity";
 

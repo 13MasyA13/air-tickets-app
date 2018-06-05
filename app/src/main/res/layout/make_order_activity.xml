@@ -37,7 +37,8 @@
                 android:id="@+id/chooseFirstDateButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Choose First Date" />
+                android:text="Choose First Date"
+                android:onClick="firstDateClick"/>
 
             <TextView
                 android:id="@+id/secondDateLabel"
@@ -49,7 +50,8 @@
                 android:id="@+id/chooseSecondDateButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Choose Second Date" />
+                android:text="Choose Second Date"
+                android:onClick="secondDateClick"/>
 
             <TextView
                 android:id="@+id/fromPlaceLabel"
@@ -137,7 +139,8 @@
                 android:id="@+id/countPriceButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Count price" />
+                android:text="Count price"
+                android:onClick="onMakeOrderClick"/>
 
             <TextView
                 android:id="@+id/priceLabel"

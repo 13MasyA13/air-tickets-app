@@ -24,7 +24,7 @@ public class FirstDateActivity extends AppCompatActivity {
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
             public void onSelectedDayChange(CalendarView view, int year, int month, int dayOfMonth) {
-                int[] date = new int[2];
+                int[] date = new int[3];
                 date[0] = dayOfMonth + 1;
                 date[1] = month;
                 date[2] = year;

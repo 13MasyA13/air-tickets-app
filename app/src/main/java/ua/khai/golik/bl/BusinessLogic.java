@@ -77,7 +77,7 @@ public class BusinessLogic implements CountFinalOrderPrice{
 
         // TODO toPlace
 
-        double step = countStepPrice("");
+        double step = countStepPrice(order);
         int adultsCount = order.getCount_of_adults();
         int childrenCount = order.getCount_of_children();
 
@@ -90,7 +90,13 @@ public class BusinessLogic implements CountFinalOrderPrice{
     }
 
     @Override
-    public double countStepPrice(String toPlace) {
+    public double countStepPrice(Order order) {
+
+        String toPlace = order.getTo_place();
+
+        switch (toPlace){
+
+        }
         return 0;
     }
 

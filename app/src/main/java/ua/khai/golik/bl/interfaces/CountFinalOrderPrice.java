@@ -10,7 +10,7 @@ public interface CountFinalOrderPrice {
 
     double classOfSeats(Order order);
 
-    double countStepPrice(String toPlace);
+    double countStepPrice(Order order);
 
     double countPriceForToPlace(Order order);
 

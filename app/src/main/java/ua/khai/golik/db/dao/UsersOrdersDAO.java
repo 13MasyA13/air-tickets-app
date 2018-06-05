@@ -17,7 +17,7 @@ public class UsersOrdersDAO implements UsersOrdersDBOperations{
         SQLiteDatabase db = dbHelper.getWritableDatabase();
 
         List<Order> listOfOrders = new ArrayList<>();
-        Cursor cursor = db.rawQuery("SELECT * FROM orders WHERE user_id = ?", new String[]{String.valueOf(user_id)});
+        Cursor cursor = db.query(DBHelper.ORDERS_TABLE, null, "user_id = ?", new String[]{String.valueOf(user_id)}, null, null, null);
 
         cursor.moveToFirst();
 

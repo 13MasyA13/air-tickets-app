@@ -1,6 +1,6 @@
 package ua.khai.golik.bl.interfaces;
 
-public interface Validators {
+public interface RegistrationValidator {
 
     int registrationValidator(String[] values);
 }
