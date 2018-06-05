@@ -21,7 +21,7 @@ public class PersonalAreaActivity extends AppCompatActivity {
 
         firstNameLabel = findViewById(R.id.helloLabel);
 
-        firstNameLabel.append(" " + RegisterActivity.name);
+        firstNameLabel.append(" " + LoggingActivity.userFirstName);
         System.out.println(RegisterActivity.login);
     }
 

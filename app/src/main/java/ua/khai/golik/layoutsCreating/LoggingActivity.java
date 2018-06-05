@@ -3,6 +3,7 @@ package ua.khai.golik.layoutsCreating;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -12,6 +13,7 @@ import ua.khai.golik.db.DBHelper;
 import ua.khai.golik.db.dao.AbstractDAOFactory;
 import ua.khai.golik.db.dao.SQLiteDAOFactory;
 import ua.khai.golik.db.dao.UserDAO;
+import ua.khai.golik.entities.User;
 
 public class LoggingActivity extends AppCompatActivity {
 
@@ -59,6 +61,13 @@ public class LoggingActivity extends AppCompatActivity {
 
         if(isExists == true){
             Toast.makeText(LoggingActivity.this, "Successfully logging! Welcome, " + loginText, Toast.LENGTH_SHORT).show();
+            int id = userDAO.getUserIdByUserLogin(dbHelper, loginText);
+            User user = userDAO.getUserByID(dbHelper, id);
+
+            LoggingActivity.userID = id;
+            LoggingActivity.userLogin = loginText;
+            LoggingActivity.userFirstName = user.getFirst_name();
+
             Intent personalArea = new Intent("personal.area");
             startActivity(personalArea);
         } else{

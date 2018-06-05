@@ -51,11 +51,9 @@ public class UserDAO implements UserDBOperations{
     @Override
     public User getUserByID(DBHelper dbHelper, int id) {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
-        Cursor cursor = db.query(DBHelper.USER_TABLE, null, null, null, null, null , null);
+        Cursor cursor = db.query(DBHelper.USER_TABLE, null, "id = ?", new String[]{String.valueOf(id)}, null, null , null);
 
         cursor.moveToFirst();
-
-        cursor.move(id);
 
         User user = new User();
         user.setId(cursor.getInt(cursor.getColumnIndex(DBHelper.USER_ID)));
@@ -64,6 +62,7 @@ public class UserDAO implements UserDBOperations{
         user.setFirst_phone_number(cursor.getString(cursor.getColumnIndex(DBHelper.USER_FIRST_PHONE_NUMBER)));
         user.setSecond_phone_number(cursor.getString(cursor.getColumnIndex(DBHelper.USER_SECOND_PHONE_NUMBER)));
         user.setEmail(cursor.getString(cursor.getColumnIndex(DBHelper.USER_EMAIL)));
+
         return user;
     }
 
