@@ -110,8 +110,8 @@ public class BusinessLogic implements CountFinalOrderPrice{
         String[] masOfFirstNumbers = firstDateString.split("/");
         String[] masOfSecondNumbers = secondDateString.split("/");
 
-        int[] firstDateMas = new int[2];
-        int[] secondDateMas = new int[2];
+        int[] firstDateMas = new int[3];
+        int[] secondDateMas = new int[3];
 
         for(int i = 0; i < firstDateMas.length; i++){
             firstDateMas[i] = Integer.parseInt(masOfFirstNumbers[i]);
@@ -129,7 +129,7 @@ public class BusinessLogic implements CountFinalOrderPrice{
 
         answerMilliSeconds = d2 - d1;
 
-        answer = answerMilliSeconds * 1000 * 60 * 60 * 24;
+        answer = answerMilliSeconds / 1000 / 60 / 60 / 24;
 
         return answer;
     }
