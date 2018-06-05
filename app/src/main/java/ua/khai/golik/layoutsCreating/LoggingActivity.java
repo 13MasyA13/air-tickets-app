@@ -21,8 +21,9 @@ public class LoggingActivity extends AppCompatActivity {
 
     private EditText login,password;
 
-    public static int userID = 0;
-    public static String userFirstName = "";
+    public static int userID;
+    public static String userFirstName;
+    public static String userLogin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

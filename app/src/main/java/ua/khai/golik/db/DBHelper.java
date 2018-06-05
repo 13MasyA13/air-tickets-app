@@ -23,7 +23,6 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String USER_PASSWORD = "password";
     public static final String USER_FIRST_PHONE_NUMBER = "first_phone_number";
     public static final String USER_SECOND_PHONE_NUMBER = "second_phone_number";
-    public static final String USER_BIRTH_DATE = "user_birth_date";
     public static final String USER_EMAIL = "email";
 
     // Name of the table 'orders'
@@ -54,7 +53,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
         db.execSQL("CREATE TABLE 'users' ('id' INTEGER PRIMARY KEY AUTOINCREMENT,'first_name' TEXT NOT NULL, " +
                 "'last_name' TEXT NOT NULL, 'login' TEXT NOT NULL, 'password' TEXT NOT NULL, 'first_phone_number' TEXT NOT NULL, " +
-                "'second_phone_number' TEXT, 'user_birth_date' TEXT NOT NULL, 'email' TEXT NOT NULL)");
+                "'second_phone_number' TEXT, 'email' TEXT NOT NULL)");
 
         // CREATION OF ORDERS_TABLE
 
@@ -67,8 +66,8 @@ public class DBHelper extends SQLiteOpenHelper {
 
         db.execSQL("INSERT INTO users ( " + DBHelper.USER_FIRST_NAME + " , " + DBHelper.USER_LAST_NAME + " , " +
                 DBHelper.USER_LOGIN + " , " + DBHelper.USER_PASSWORD + " , " + DBHelper.USER_FIRST_PHONE_NUMBER + " , " +
-                DBHelper.USER_SECOND_PHONE_NUMBER + " , " + DBHelper.USER_BIRTH_DATE + " , " + DBHelper.USER_EMAIL + " ) " +
-                " VALUES ('John', 'Burn', 'test', '123', '00000', '00000', '31/12/1900', 'jb@test.com')");
+                DBHelper.USER_SECOND_PHONE_NUMBER + " , " + DBHelper.USER_EMAIL + " ) " +
+                " VALUES ('John', 'Burn', 'test', '123', '00000', '00000', 'jb@test.com')");
 
         // CREATION OF DEFAULT USER'S ORDER
 

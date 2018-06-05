@@ -15,7 +15,6 @@ import ua.golik.khai.air_tickets_app.R;
 import ua.khai.golik.db.DBHelper;
 import ua.khai.golik.db.dao.AbstractDAOFactory;
 import ua.khai.golik.db.dao.SQLiteDAOFactory;
-import ua.khai.golik.db.dao.UserDAO;
 import ua.khai.golik.db.dao.UsersOrdersDAO;
 import ua.khai.golik.entities.Order;
 

@@ -36,10 +36,10 @@ public class UserDAO implements UserDBOperations{
 
         final String SQL = "INSERT INTO users ( " + DBHelper.USER_FIRST_NAME + " , " + DBHelper.USER_LAST_NAME + " , " +
                 DBHelper.USER_LOGIN + " , " + DBHelper.USER_PASSWORD + " , " + DBHelper.USER_FIRST_PHONE_NUMBER + " , " +
-                DBHelper.USER_SECOND_PHONE_NUMBER + " , " + DBHelper.USER_BIRTH_DATE + " , " + DBHelper.USER_EMAIL + " ) " +
+                DBHelper.USER_SECOND_PHONE_NUMBER  + " , " + DBHelper.USER_EMAIL + " ) " +
                 " VALUES ( " + "\'" + user.getFirst_name() + "\'" + " , " + "\'" + user.getLast_name() + "\'" + " , " + "\'" +
                 user.getLogin() + "\'" + " , " + "\'" + user.getPassword() + "\'" + " , " + "\'" + user.getFirst_phone_number() + "\'" +
-                " , " + "\'" + user.getSecond_phone_number() + "\'" + " , " + "\'" + user.getBirthDate() + "\'" + " , " + "\'" + user.getEmail() + "\'" + ")";
+                " , " + "\'" + user.getSecond_phone_number() + "\'" +  " , " + "\'" + user.getEmail() + "\'" + ")";
         db.execSQL(SQL);
 
         RegisterActivity.login = user.getLogin();
@@ -63,7 +63,6 @@ public class UserDAO implements UserDBOperations{
         user.setLast_name(cursor.getString(cursor.getColumnIndex(DBHelper.USER_LAST_NAME)));
         user.setFirst_phone_number(cursor.getString(cursor.getColumnIndex(DBHelper.USER_FIRST_PHONE_NUMBER)));
         user.setSecond_phone_number(cursor.getString(cursor.getColumnIndex(DBHelper.USER_SECOND_PHONE_NUMBER)));
-        user.setBirthDate(cursor.getString(cursor.getColumnIndex(DBHelper.USER_BIRTH_DATE)));
         user.setEmail(cursor.getString(cursor.getColumnIndex(DBHelper.USER_EMAIL)));
         return user;
     }
@@ -80,7 +79,6 @@ public class UserDAO implements UserDBOperations{
         int lastNameIndex = cursor.getColumnIndex(DBHelper.USER_LAST_NAME);
         int firstPhoneIndex = cursor.getColumnIndex(DBHelper.USER_FIRST_PHONE_NUMBER);
         int secondPhoneIndex = cursor.getColumnIndex(DBHelper.USER_SECOND_PHONE_NUMBER);
-        int birthIndex = cursor.getColumnIndex(DBHelper.USER_BIRTH_DATE);
         int emailIndex = cursor.getColumnIndex(DBHelper.USER_EMAIL);
 
         List<User> userList = new ArrayList<>();
@@ -94,7 +92,6 @@ public class UserDAO implements UserDBOperations{
                 user.setLast_name(cursor.getString(lastNameIndex));
                 user.setFirst_phone_number(cursor.getString(firstPhoneIndex));
                 user.setSecond_phone_number(cursor.getString(secondPhoneIndex));
-                user.setBirthDate(cursor.getString(birthIndex));
                 user.setEmail(cursor.getString(emailIndex));
 
                 userList.add(user);
