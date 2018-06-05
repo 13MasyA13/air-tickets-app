@@ -13,6 +13,10 @@ import android.widget.Toast;
 import ua.golik.khai.air_tickets_app.R;
 import ua.khai.golik.bl.BusinessLogic;
 import ua.khai.golik.bl.interfaces.MakeOrderValidation;
+import ua.khai.golik.db.DBHelper;
+import ua.khai.golik.db.dao.AbstractDAOFactory;
+import ua.khai.golik.db.dao.OrderDAO;
+import ua.khai.golik.db.dao.SQLiteDAOFactory;
 import ua.khai.golik.entities.Order;
 
 public class MakeOrderActivity extends AppCompatActivity implements MakeOrderValidation{
@@ -28,10 +32,16 @@ public class MakeOrderActivity extends AppCompatActivity implements MakeOrderVal
 
     public int childrenBarCount, adultsBarCount;
 
+    private Order order = new Order();
+
+    private DBHelper dbHelper;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.make_order_activity);
+
+        dbHelper = new DBHelper(this);
 
         adultsBarValue = findViewById(R.id.adultsBarValue);
         childrenBarValue = findViewById(R.id.childrenBarValue);
@@ -93,11 +103,7 @@ public class MakeOrderActivity extends AppCompatActivity implements MakeOrderVal
         startActivity(firstDateActivity);
     }
 
-    // TODO onMakeOrderClick()
-
     public void onMakeOrderClick(View view){
-
-        Order order = new Order();
         BusinessLogic businessLogic = new BusinessLogic();
         Intent currentIntent = getIntent();
 
@@ -135,7 +141,6 @@ public class MakeOrderActivity extends AppCompatActivity implements MakeOrderVal
         switch (validationResult){
             case 0:
                 order.setPrice(businessLogic.countPrice(order));
-
                 priceValue.setText(Double.toString(order.getPrice()));
                 break;
             case 1:
@@ -150,6 +155,18 @@ public class MakeOrderActivity extends AppCompatActivity implements MakeOrderVal
 
         }
 
+    }
+
+    public void onConfirmMakeOrderClick(View view){
+        AbstractDAOFactory sqLiteDAOFactory = new SQLiteDAOFactory();
+        OrderDAO orderDAO = sqLiteDAOFactory.getOrderDAO();
+
+        orderDAO.insertNewOrder(dbHelper, order, 1);
+
+        Toast.makeText(this, "You are successfully make order!", Toast.LENGTH_SHORT);
+        Toast.makeText(this, "You can check it out by tap on 'My Booked Tickets' button", Toast.LENGTH_SHORT);
+
+        finish();
     }
 
     @Override
