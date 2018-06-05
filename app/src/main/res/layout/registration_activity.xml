@@ -73,19 +73,6 @@
                 android:hint="Second Phone Number"
                 android:inputType="phone" />
 
-            <TextView
-                android:id="@+id/birthdayLabel"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="" />
-
-            <Button
-                android:id="@+id/birthdayLayoutExecutingButton"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Choose Date of Your Birthday"
-                android:onClick="selectBirthdayDateOnClick"/>
-
             <EditText
                 android:id="@+id/email"
                 android:layout_width="match_parent"

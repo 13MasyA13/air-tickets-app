@@ -47,11 +47,6 @@ public class RegisterActivity extends AppCompatActivity implements RegistrationV
         dateTextView = findViewById(R.id.birthdayLabel);
     }
 
-    public void selectBirthdayDateOnClick(View view){
-        Intent selectBirthday = new Intent(RegisterActivity.this, SelectBirthdayActitity.class);
-        startActivity(selectBirthday);
-    }
-
     public void registrationOnClick(View view){
         String firstName = fNameEditText.getText().toString();
         String lastName = lNameEditText.getText().toString();
@@ -59,7 +54,6 @@ public class RegisterActivity extends AppCompatActivity implements RegistrationV
         String password = passwordEditText.getText().toString();
         String firstPhone = firstPhoneEditText.getText().toString();
         String secondPhone = secondPhoneEditText.getText().toString();
-        String dateOfBirthday = dateTextView.getText().toString();
         String email = emailEditText.getText().toString();
 
         String[] validateValues = new String[]{firstName, lastName, login, password, firstPhone,
@@ -85,7 +79,6 @@ public class RegisterActivity extends AppCompatActivity implements RegistrationV
                 } else{
                     user.setFirst_phone_number(secondPhone);
                 }
-                user.setBirthDate(dateOfBirthday);
                 user.setEmail(email);
 
                 AbstractDAOFactory daoFactory = new SQLiteDAOFactory();
