@@ -24,16 +24,13 @@ public class FirstDateActivity extends AppCompatActivity {
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
             public void onSelectedDayChange(CalendarView view, int year, int month, int dayOfMonth) {
-                int[] date = new int[3];
-                date[0] = dayOfMonth + 1;
-                date[1] = month;
-                date[2] = year;
+                int monthes = month + 1;
+                String date = dayOfMonth + "/" + monthes + "/" + year;
 
-                Log.d(firstDateActivity, date.toString());
+                Log.d(firstDateActivity, date);
 
-                Intent intent = new Intent(FirstDateActivity.this, MakeOrderActivity.class);
-                intent.putExtra("firstDate", date);
-                startActivity(intent);
+                MakeOrderActivity.fromDateText.setText(date);
+                finish();
             }
         });
     }

@@ -24,16 +24,12 @@ public class SecondDateActivity extends AppCompatActivity {
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
             public void onSelectedDayChange(CalendarView view, int year, int month, int dayOfMonth) {
-                int[] date = new int[3];
-                date[0] = dayOfMonth + 1;
-                date[1] = month;
-                date[2] = year;
+                int monthes = month + 1;
+                String date = dayOfMonth + "/" + monthes + "/" + year;
 
                 Log.d(secondDateActivity, date.toString());
-
-                Intent intent = new Intent(SecondDateActivity.this, MakeOrderActivity.class);
-                intent.putExtra("secondDate", date);
-                startActivity(intent);
+                MakeOrderActivity.toDateText.setText(date);
+                finish();
             }
         });
     }

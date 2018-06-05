@@ -20,9 +20,11 @@ public class MakeOrderActivity extends AppCompatActivity implements MakeOrderVal
     private static final String makeOrderActivity = "MakeOrderActivity";
 
     private SeekBar adultsSeekBar, childrenSeekBar;
-    private TextView adultsBarValue, childrenBarValue, fromDateText, toDateText, priceValue;
+    private TextView adultsBarValue, childrenBarValue, priceValue;
     private Spinner fromPlaceSpinner, toPlaceSpinner;
     private RadioButton economClass;
+
+    public static TextView fromDateText, toDateText;
 
     public int childrenBarCount, adultsBarCount;
 
@@ -78,6 +80,7 @@ public class MakeOrderActivity extends AppCompatActivity implements MakeOrderVal
                 childrenBarCount = childrenSeekBar.getProgress();
             }
         });
+
     }
 
     public void firstDateClick(View view){

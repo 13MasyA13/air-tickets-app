@@ -43,8 +43,6 @@ public class RegisterActivity extends AppCompatActivity implements RegistrationV
         firstPhoneEditText = findViewById(R.id.firstPhone);
         secondPhoneEditText = findViewById(R.id.secondPhone);
         emailEditText = findViewById(R.id.email);
-
-        dateTextView = findViewById(R.id.birthdayLabel);
     }
 
     public void registrationOnClick(View view){
