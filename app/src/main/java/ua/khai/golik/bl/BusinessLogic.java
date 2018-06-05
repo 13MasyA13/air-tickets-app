@@ -75,29 +75,79 @@ public class BusinessLogic implements CountFinalOrderPrice{
         double fromPlaceCount = countPriceForFromPlace(order);
         double toPlaceCount = countPriceForToPlace(order);
 
-        // TODO toPlace
-
-        double step = countStepPrice(order);
         int adultsCount = order.getCount_of_adults();
         int childrenCount = order.getCount_of_children();
 
-        adultPrice = toPlaceCount * countOfDays * fromPlaceCount * classOfSeats * adultsCount * ADULT_COEFF;
-        childrenPrice = toPlaceCount * countOfDays * fromPlaceCount * classOfSeats * childrenCount * CHILDREN_COEFF;
+        double stepPrice = countStepPrice(order);
 
-        answ = adultPrice + childrenPrice;
-
+        if(countOfDays <= 7){
+            adultPrice = toPlaceCount * fromPlaceCount * classOfSeats * adultsCount * ADULT_COEFF;
+            childrenPrice = toPlaceCount * fromPlaceCount * classOfSeats * childrenCount * CHILDREN_COEFF;
+            answ = adultPrice + childrenPrice;
+        } else{
+            adultPrice = toPlaceCount * stepPrice * fromPlaceCount * classOfSeats * adultsCount * ADULT_COEFF;
+            childrenPrice = toPlaceCount * stepPrice * fromPlaceCount * classOfSeats * childrenCount * CHILDREN_COEFF;
+            answ = adultPrice + childrenPrice;
+        }
         return answ;
     }
 
     @Override
     public double countStepPrice(Order order) {
+        double answ = 0;
 
         String toPlace = order.getTo_place();
 
         switch (toPlace){
+            case"Sharm El Sheikh":
+                answ = sharmStepPrice;
+                break;
 
+            case"Kairo":
+                answ = kairoStepPrice;
+                break;
+
+            case"Kemer":
+                answ = kemerStepPrice;
+                break;
+
+            case"Antalya":
+                answ = antalyaStepPrice;
+                break;
+
+            case"Menton":
+                answ = mentonStepPrice;
+                break;
+
+            case"Nerja":
+                answ = nerjaStepPrice;
+                break;
+
+            case"Biarritz":
+                answ = biarritzStepPrice;
+                break;
+
+            case"San Sebastian":
+                answ = sanSebastianStepPrice;
+                break;
+
+            case"Formentera":
+                answ = formentaraStepPrice;
+                break;
+
+            case"Porto Santo":
+                answ = portoSantoStepPrice;
+                break;
+
+            case"Viareggio":
+                answ = viareggioStepPrice;
+                break;
+
+            case"Playa Blanca":
+                answ = playaBlancaStepPrice;
+                break;
         }
-        return 0;
+        return answ;
     }
 
     @Override
