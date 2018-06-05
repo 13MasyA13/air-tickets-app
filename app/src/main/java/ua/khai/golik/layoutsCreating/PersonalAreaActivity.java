@@ -45,4 +45,12 @@ public class PersonalAreaActivity extends AppCompatActivity {
         startActivity(aboutAcvitity);
     }
 
+    public void logOutOnClick(View view){
+        LoggingActivity.userID = 0;
+        LoggingActivity.userFirstName = null;
+        LoggingActivity.userLogin = null;
+
+        finish();
+    }
+
 }

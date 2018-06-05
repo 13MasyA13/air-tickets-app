@@ -36,7 +36,8 @@
         android:layout_marginTop="8dp"
         android:text="Log Out"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:onClick="logOutOnClick"/>
 
     <TextView
         android:id="@+id/helloLabel"
