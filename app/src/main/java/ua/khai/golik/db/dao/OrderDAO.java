@@ -1,6 +1,5 @@
 package ua.khai.golik.db.dao;
 
-import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
@@ -14,16 +13,16 @@ import ua.khai.golik.entities.Order;
 public class OrderDAO implements OrderDBOperations{
 
     @Override
-    public boolean insertNewOrder(DBHelper dbHelper, Order order) {
+    public boolean insertNewOrder(DBHelper dbHelper, Order order, int id) {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
 
         final String SQL = "INSERT INTO orders ( " + DBHelper.FIRST_DATE + " , " + DBHelper.SECOND_DATE + " , " +
                 DBHelper.FROM_PLACE + " , " + DBHelper.TO_PLACE + " , " + DBHelper.PRICE + " , " +
                 DBHelper.COUNT_OF_CHILDREN + " , " + DBHelper.COUNT_OF_ADULTS + " , " + DBHelper.COUNT_OF_SEATS + " ) " +
-                " VALUES ( " + "\'" + order.getFirst_date() + "\'" + " , " + "\'" + order.getSecond_date() + "\'" + " , " + "\'" +
-                order.getFrom_place() + "\'" + " , " + "\'" + order.getTo_place() + "\'" + " , " + "\'" + order.getPrice() + "\'" +
-                " , " + "\'" + order.getCount_of_children() + "\'" + " , " + "\'" + order.getCount_of_adults() + "\'" + " , " + "\'"
-                + order.getCount_of_seats() + "\'" + ")";
+                " VALUES ( " + id + " , " + "\'" + order.getFirst_date() + "\'" + " , " + "\'" + order.getSecond_date() +
+                "\'" + " , " + "\'" + order.getFrom_place() + "\'" + " , " + "\'" + order.getTo_place() + "\'" + " , " + order.getPrice() +
+                " , " + order.getCount_of_children()+ " , " + order.getCount_of_adults() +
+                " , " + order.getCount_of_seats() + ")";
         db.execSQL(SQL);
         return true;
     }
