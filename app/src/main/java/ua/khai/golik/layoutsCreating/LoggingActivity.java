@@ -60,13 +60,14 @@ public class LoggingActivity extends AppCompatActivity {
         boolean isExists = userDAO.loginUserByLogAndPass(dbHelper, loginText, passwordText);
 
         if(isExists == true){
-            Toast.makeText(LoggingActivity.this, "Successfully logging! Welcome, " + loginText, Toast.LENGTH_SHORT).show();
             int id = userDAO.getUserIdByUserLogin(dbHelper, loginText);
             User user = userDAO.getUserByID(dbHelper, id);
 
             LoggingActivity.userID = id;
             LoggingActivity.userLogin = loginText;
             LoggingActivity.userFirstName = user.getFirst_name();
+
+            Toast.makeText(LoggingActivity.this, "Successfully logging! Welcome, " + user.getFirst_name() + " " + user.getLast_name(), Toast.LENGTH_LONG).show();
 
             Intent personalArea = new Intent("personal.area");
             startActivity(personalArea);

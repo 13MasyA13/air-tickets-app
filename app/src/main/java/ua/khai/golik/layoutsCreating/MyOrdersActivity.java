@@ -48,16 +48,10 @@ public class MyOrdersActivity extends AppCompatActivity {
 
         dbHelper = new DBHelper(this);
 
-        Intent intent = getIntent();
-        String userID = intent.getStringExtra("userID");
-
-        // TODO when made Intent.putExtra()
-        //Integer id = Integer.getInteger(userID);
-
         AbstractDAOFactory sqLiteDAOFactory = new SQLiteDAOFactory();
         UsersOrdersDAO usersOrdersDAO = sqLiteDAOFactory.getUsersOrdersDAO();
 
-        List<Order> ordersList = usersOrdersDAO.getOrdersByUserID(dbHelper,1);
+        List<Order> ordersList = usersOrdersDAO.getOrdersByUserID(dbHelper,LoggingActivity.userID);
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_expandable_list_item_2, ordersList);
         listView.setAdapter(arrayAdapter);
 

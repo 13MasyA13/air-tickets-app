@@ -105,10 +105,6 @@ public class MakeOrderActivity extends AppCompatActivity implements MakeOrderVal
 
     public void onMakeOrderClick(View view){
         BusinessLogic businessLogic = new BusinessLogic();
-        Intent currentIntent = getIntent();
-
-        // TODO getting user_id
-        //int user_id = currentInten.getIntExtra();
 
         String firstDateValue = fromDateText.getText().toString();
         String secondDateValue = toDateText.getText().toString();
@@ -141,6 +137,7 @@ public class MakeOrderActivity extends AppCompatActivity implements MakeOrderVal
         switch (validationResult){
             case 0:
                 order.setPrice(businessLogic.countPrice(order));
+                order.setUser_id(LoggingActivity.userID);
                 priceValue.setText(Double.toString(order.getPrice()));
                 break;
             case 1:
@@ -161,7 +158,7 @@ public class MakeOrderActivity extends AppCompatActivity implements MakeOrderVal
         AbstractDAOFactory sqLiteDAOFactory = new SQLiteDAOFactory();
         OrderDAO orderDAO = sqLiteDAOFactory.getOrderDAO();
 
-        orderDAO.insertNewOrder(dbHelper, order, 1);
+        orderDAO.insertNewOrder(dbHelper, order);
 
         Toast.makeText(this, "You are successfully make order!", Toast.LENGTH_SHORT);
         Toast.makeText(this, "You can check it out by tap on 'My Booked Tickets' button", Toast.LENGTH_SHORT);

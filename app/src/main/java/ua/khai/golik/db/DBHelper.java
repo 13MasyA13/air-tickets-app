@@ -43,7 +43,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String COUNT_OF_SEATS = "count_of_seats";
 
     public DBHelper(Context context){
-        super(context, DB_NAME, null, 30);
+        super(context, DB_NAME, null, 34);
     }
 
     @Override

@@ -85,8 +85,8 @@ public class RegisterActivity extends AppCompatActivity implements RegistrationV
 
                 if(b == true){
                     Toast.makeText(RegisterActivity.this, "You are successfully registered! Please login into your account!", Toast.LENGTH_LONG);
-                    Intent personalArea = new Intent(this, PersonalAreaActivity.class);
-                    startActivity(personalArea);
+                    Intent loggingActivity = new Intent(this, LoggingActivity.class);
+                    startActivity(loggingActivity);
                 } else{
                     Toast.makeText(RegisterActivity.this, "App Fatal Error!!!!!!!!", Toast.LENGTH_LONG);
                 }

@@ -16,10 +16,9 @@ public class UsersOrdersDAO implements UsersOrdersDBOperations{
     public List<Order> getOrdersByUserID(DBHelper dbHelper, int user_id) {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
 
-        List<Order> listOfOrders = new ArrayList<>();
-        Cursor cursor = db.query(DBHelper.ORDERS_TABLE, null, "user_id = ?", new String[]{String.valueOf(user_id)}, null, null, null);
+        //Cursor cursor = db.query(DBHelper.ORDERS_TABLE, null, "user_id = ?", new String[]{String.valueOf(user_id)}, null, null, null);
 
-        cursor.moveToFirst();
+        Cursor cursor = db.query(DBHelper.ORDERS_TABLE, null, null,null,null,null,null,null);
 
         int firstDate = cursor.getColumnIndex(DBHelper.FIRST_DATE);
         int secondDate = cursor.getColumnIndex(DBHelper.SECOND_DATE);
@@ -29,6 +28,8 @@ public class UsersOrdersDAO implements UsersOrdersDBOperations{
         int countOfChildren = cursor.getColumnIndex(DBHelper.COUNT_OF_CHILDREN);
         int countOfAdults = cursor.getColumnIndex(DBHelper.COUNT_OF_ADULTS);
         int countOfSeats = cursor.getColumnIndex(DBHelper.COUNT_OF_SEATS);
+
+        List<Order> listOfOrders = new ArrayList<>();
 
         if(cursor.moveToFirst()){
             while(cursor.moveToNext()){

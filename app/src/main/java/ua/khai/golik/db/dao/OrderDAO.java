@@ -13,13 +13,13 @@ import ua.khai.golik.entities.Order;
 public class OrderDAO implements OrderDBOperations{
 
     @Override
-    public boolean insertNewOrder(DBHelper dbHelper, Order order, int id) {
+    public boolean insertNewOrder(DBHelper dbHelper, Order order) {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
 
-        final String SQL = "INSERT INTO orders ( " + DBHelper.FIRST_DATE + " , " + DBHelper.SECOND_DATE + " , " +
+        final String SQL = "INSERT INTO orders ( " + DBHelper.USER_ID_IN_ORDER + " , " + DBHelper.FIRST_DATE + " , " + DBHelper.SECOND_DATE + " , " +
                 DBHelper.FROM_PLACE + " , " + DBHelper.TO_PLACE + " , " + DBHelper.PRICE + " , " +
                 DBHelper.COUNT_OF_CHILDREN + " , " + DBHelper.COUNT_OF_ADULTS + " , " + DBHelper.COUNT_OF_SEATS + " ) " +
-                " VALUES ( " + id + " , " + "\'" + order.getFirst_date() + "\'" + " , " + "\'" + order.getSecond_date() +
+                " VALUES ( " + order.getUser_id() + " , " + "\'" + order.getFirst_date() + "\'" + " , " + "\'" + order.getSecond_date() +
                 "\'" + " , " + "\'" + order.getFrom_place() + "\'" + " , " + "\'" + order.getTo_place() + "\'" + " , " + order.getPrice() +
                 " , " + order.getCount_of_children()+ " , " + order.getCount_of_adults() +
                 " , " + order.getCount_of_seats() + ")";
