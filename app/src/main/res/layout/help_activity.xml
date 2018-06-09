@@ -41,6 +41,7 @@
         android:layout_marginEnd="52dp"
         android:text="+380675641030"
         android:textSize="18sp"
+        android:autoLink="phone"
         app:layout_constraintBottom_toTopOf="@+id/thirdHelpPhone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/kyivstarLogo" />
@@ -53,6 +54,7 @@
         android:layout_marginEnd="52dp"
         android:text="+380958521030"
         android:textSize="18sp"
+        android:autoLink="phone"
         app:layout_constraintBottom_toBottomOf="@+id/vodafoneLogo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/vodafoneLogo" />
@@ -65,6 +67,7 @@
         android:layout_marginTop="488dp"
         android:text="+380739641030"
         android:textSize="18sp"
+        android:autoLink="phone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

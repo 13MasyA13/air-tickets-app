@@ -1,6 +1,5 @@
 package ua.khai.golik.layoutsCreating;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -24,8 +23,9 @@ public class SecondDateActivity extends AppCompatActivity {
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
             public void onSelectedDayChange(CalendarView view, int year, int month, int dayOfMonth) {
-                int monthes = month + 1;
-                String date = dayOfMonth + "/" + monthes + "/" + year;
+                int months = month + 1;
+
+                String date = dayOfMonth + "/" + months + "/" + year;
 
                 Log.d(secondDateActivity, date.toString());
                 MakeOrderActivity.toDateText.setText(date);

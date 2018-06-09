@@ -33,6 +33,7 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:hint="Last Name"
+                android:layout_marginTop="20dp"
                 android:inputType="textPersonName" />
 
             <EditText
@@ -41,12 +42,14 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:hint="Login"
+                android:layout_marginTop="20dp"
                 android:inputType="textPersonName" />
 
             <EditText
                 android:id="@+id/password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
                 android:ems="10"
                 android:hint="Pasword"
                 android:inputType="textPassword" />
@@ -55,6 +58,7 @@
                 android:id="@+id/firstPhone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
                 android:ems="10"
                 android:hint="First Phone Number"
                 android:inputType="phone" />
@@ -63,12 +67,14 @@
                 android:id="@+id/secondPhoneNotRequiredLabel"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Not required" />
+                android:layout_marginTop="5dp"
+                android:text="*Not necessary" />
 
             <EditText
                 android:id="@+id/secondPhone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
                 android:ems="10"
                 android:hint="Second Phone Number"
                 android:inputType="phone" />
@@ -77,6 +83,7 @@
                 android:id="@+id/email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
                 android:ems="10"
                 android:hint="Email"
                 android:inputType="textEmailAddress" />
@@ -85,6 +92,7 @@
                 android:id="@+id/registerButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
                 android:text="Regitser"
                 android:onClick="registrationOnClick"/>
         </LinearLayout>

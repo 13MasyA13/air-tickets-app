@@ -18,21 +18,11 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/versionAbout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="164dp"
-        android:layout_marginTop="544dp"
-        android:text="@string/version"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
         android:id="@+id/appName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="144dp"
-        android:layout_marginTop="448dp"
+        android:layout_marginTop="480dp"
         android:text="@string/app_name"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -52,9 +42,10 @@
         android:id="@+id/myEmailText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="60dp"
+        android:layout_marginEnd="44dp"
         android:layout_marginTop="32dp"
-        android:text="maximko1312@gmail.com"
+        android:autoLink="email"
+        android:text="@string/email"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/aboutText2" />
 
@@ -102,10 +93,10 @@
         android:layout_marginTop="24dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.888"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2"
-        app:layout_constraintVertical_bias="0.067"
+        app:layout_constraintVertical_bias="0.078"
         app:srcCompat="@drawable/twitter_ico" />
 
     <TextView
@@ -115,7 +106,8 @@
         android:layout_marginEnd="60dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="296dp"
-        android:text="https://t.me/masya1312"
+        android:text="@string/telegram"
+        android:autoLink="web"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/imageView2"
@@ -129,7 +121,8 @@
         android:layout_marginEnd="36dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="60dp"
-        android:text="https://twitter.com/Max_Golik"
+        android:text="@string/twitter"
+        android:autoLink="web"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -142,7 +135,7 @@
         android:layout_width="187dp"
         android:layout_height="50dp"
         android:layout_marginEnd="84dp"
-        android:layout_marginTop="492dp"
+        android:layout_marginTop="536dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/airplane_ico" />
@@ -151,8 +144,10 @@
         android:id="@+id/yearText"
         android:layout_width="34dp"
         android:layout_height="23dp"
+        android:layout_marginEnd="160dp"
+        android:layout_marginTop="4dp"
         android:text="2018"
-        tools:layout_editor_absoluteX="163dp"
-        tools:layout_editor_absoluteY="467dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appName" />
 
 </android.support.constraint.ConstraintLayout>

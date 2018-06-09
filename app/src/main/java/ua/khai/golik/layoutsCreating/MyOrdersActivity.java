@@ -1,5 +1,6 @@
 package ua.khai.golik.layoutsCreating;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -64,5 +65,10 @@ public class MyOrdersActivity extends AppCompatActivity {
             defaultTextView2.setVisibility(View.VISIBLE);
             makeOrderButton.setVisibility(View.VISIBLE);
         }
+    }
+
+    public void makeOrderInPersonalAreaOnClick(View view){
+        Intent makeOrderActivity = new Intent(MyOrdersActivity.this, MakeOrderActivity.class);
+        startActivity(makeOrderActivity);
     }
 }
