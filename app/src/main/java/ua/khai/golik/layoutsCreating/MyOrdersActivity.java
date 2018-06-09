@@ -1,6 +1,5 @@
 package ua.khai.golik.layoutsCreating;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -52,7 +51,7 @@ public class MyOrdersActivity extends AppCompatActivity {
         UsersOrdersDAO usersOrdersDAO = sqLiteDAOFactory.getUsersOrdersDAO();
 
         List<Order> ordersList = usersOrdersDAO.getOrdersByUserID(dbHelper,LoggingActivity.userID);
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_expandable_list_item_2, ordersList);
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, ordersList);
         listView.setAdapter(arrayAdapter);
 
         if(ordersList == null || ordersList.isEmpty() == true){
