@@ -13,7 +13,7 @@ import ua.khai.golik.entities.Order;
 public class UsersOrdersDAO implements UsersOrdersDBOperations{
 
     @Override
-    public List<Order> getOrdersByUserID(DBHelper dbHelper, int user_id) {
+    public ArrayList<Order> getOrdersByUserID(DBHelper dbHelper, int user_id) {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
 
         //Cursor cursor = db.query(DBHelper.ORDERS_TABLE, null, "user_id = ?", new String[]{String.valueOf(user_id)}, null, null, null);
@@ -31,7 +31,7 @@ public class UsersOrdersDAO implements UsersOrdersDBOperations{
         int countOfAdults = cursor.getColumnIndex(DBHelper.COUNT_OF_ADULTS);
         int countOfSeats = cursor.getColumnIndex(DBHelper.COUNT_OF_SEATS);
 
-        List<Order> listOfOrders = new ArrayList<>();
+        ArrayList<Order> listOfOrders = new ArrayList<>();
 
         if(cursor.moveToFirst()){
             while(cursor.moveToNext()){

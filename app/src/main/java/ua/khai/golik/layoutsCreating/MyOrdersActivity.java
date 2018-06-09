@@ -3,14 +3,14 @@ package ua.khai.golik.layoutsCreating;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import java.util.List;
+import java.util.ArrayList;
 
 import ua.golik.khai.air_tickets_app.R;
+import ua.khai.golik.adapters.OrderAdapter;
 import ua.khai.golik.db.DBHelper;
 import ua.khai.golik.db.dao.AbstractDAOFactory;
 import ua.khai.golik.db.dao.SQLiteDAOFactory;
@@ -28,6 +28,8 @@ public class MyOrdersActivity extends AppCompatActivity {
     private Button makeOrderButton;
 
     private DBHelper dbHelper;
+
+    private OrderAdapter orderAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,9 +52,10 @@ public class MyOrdersActivity extends AppCompatActivity {
         AbstractDAOFactory sqLiteDAOFactory = new SQLiteDAOFactory();
         UsersOrdersDAO usersOrdersDAO = sqLiteDAOFactory.getUsersOrdersDAO();
 
-        List<Order> ordersList = usersOrdersDAO.getOrdersByUserID(dbHelper,LoggingActivity.userID);
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, ordersList);
-        listView.setAdapter(arrayAdapter);
+        ArrayList<Order> ordersList = usersOrdersDAO.getOrdersByUserID(dbHelper,LoggingActivity.userID);
+
+        orderAdapter = new OrderAdapter(this, ordersList);
+        listView.setAdapter(orderAdapter);
 
         if(ordersList == null || ordersList.isEmpty() == true){
             listView.setVisibility(View.INVISIBLE);

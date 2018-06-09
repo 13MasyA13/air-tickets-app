@@ -9,6 +9,7 @@ import java.util.List;
 
 import ua.khai.golik.db.DBHelper;
 import ua.khai.golik.db.dao.interfaces.UserDBOperations;
+import ua.khai.golik.entities.Order;
 import ua.khai.golik.entities.User;
 import ua.khai.golik.layoutsCreating.RegisterActivity;
 
@@ -44,6 +45,31 @@ public class UserDAO implements UserDBOperations{
 
         RegisterActivity.login = user.getLogin();
         RegisterActivity.name = user.getFirst_name();
+
+        AbstractDAOFactory factory = new SQLiteDAOFactory();
+        UserDAO userDAO = factory.getUserDAO();
+
+        int currentUsersId = userDAO.getUserIdByUserLogin(dbHelper, user.getLogin());
+
+        Order order = new Order();
+
+        order.setUser_id(currentUsersId);
+        order.setFirst_date("00/00/0000");
+        order.setSecond_date("00/00/0000");
+        order.setFrom_place("XXX");
+        order.setTo_place("YYY");
+        order.setPrice(9999999);
+        order.setCount_of_children(1);
+        order.setCount_of_adults(1);
+        order.setCount_of_seats(2);
+
+        db.execSQL("INSERT INTO orders ( " + DBHelper.USER_ID_IN_ORDER + " , " + DBHelper.FIRST_DATE + " , " + DBHelper.SECOND_DATE + " , " +
+                DBHelper.FROM_PLACE + " , " + DBHelper.TO_PLACE + " , " + DBHelper.PRICE + " , " +
+                DBHelper.COUNT_OF_CHILDREN + " , " + DBHelper.COUNT_OF_ADULTS + " , " + DBHelper.COUNT_OF_SEATS + " ) " +
+                " VALUES ( " + order.getUser_id() + " , " + "\'" + order.getFirst_date() + "\'" + " , " + "\'" + order.getSecond_date() +
+                "\'" + " , " + "\'" + order.getFrom_place() + "\'" + " , " + "\'" + order.getTo_place() + "\'" + " , " + order.getPrice() +
+                " , " + order.getCount_of_children()+ " , " + order.getCount_of_adults() +
+                " , " + order.getCount_of_seats() + ")");
 
         return true;
     }

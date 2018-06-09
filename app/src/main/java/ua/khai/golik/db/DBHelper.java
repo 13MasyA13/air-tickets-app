@@ -43,7 +43,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String COUNT_OF_SEATS = "count_of_seats";
 
     public DBHelper(Context context){
-        super(context, DB_NAME, null, 42);
+        super(context, DB_NAME, null, 46);
     }
 
     @Override
@@ -76,6 +76,15 @@ public class DBHelper extends SQLiteOpenHelper {
 
         // CREATION OF DEFAULT USER'S ORDER
 
+        db.execSQL("INSERT INTO orders ( " + DBHelper.USER_ID_IN_ORDER + " , " + DBHelper.FIRST_DATE + " , " + DBHelper.SECOND_DATE + " , " +
+                DBHelper.FROM_PLACE + " , " + DBHelper.TO_PLACE + " , " + DBHelper.PRICE + " , " +
+                DBHelper.COUNT_OF_CHILDREN + " , " + DBHelper.COUNT_OF_ADULTS + " , " + DBHelper.COUNT_OF_SEATS + " ) " +
+                " VALUES (1, '25/06/2018', '31/07/2018', 'Kharkiv', 'Sharm El Sheikh', 500, 2, 0, 2)");
+
+        db.execSQL("INSERT INTO orders ( " + DBHelper.USER_ID_IN_ORDER + " , " + DBHelper.FIRST_DATE + " , " + DBHelper.SECOND_DATE + " , " +
+                DBHelper.FROM_PLACE + " , " + DBHelper.TO_PLACE + " , " + DBHelper.PRICE + " , " +
+                DBHelper.COUNT_OF_CHILDREN + " , " + DBHelper.COUNT_OF_ADULTS + " , " + DBHelper.COUNT_OF_SEATS + " ) " +
+                " VALUES (1, '25/06/2018', '31/07/2018', 'Kiev', 'Sharm El Sheikh', 500, 2, 0, 2)");
     }
 
     @Override
