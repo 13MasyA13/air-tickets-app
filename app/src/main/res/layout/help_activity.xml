@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:layout_editor_absoluteY="25dp">
+
+    <TextView
+        android:id="@+id/helpText1"
+        android:layout_width="323dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="37dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="8dp"
+        android:text="Your order will be processed within 2-3 working days"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toTopOf="@+id/helpText2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/helpText4"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="45dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:text="If you have any troubles or questions you can call to our managers : "
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/vodafoneLogo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/helpText2" />
+
+    <TextView
+        android:id="@+id/firstHelpPhone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="44dp"
+        android:layout_marginEnd="52dp"
+        android:text="+380675641030"
+        android:textSize="18sp"
+        android:autoLink="phone"
+        app:layout_constraintBottom_toTopOf="@+id/thirdHelpPhone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/kyivstarLogo" />
+
+    <TextView
+        android:id="@+id/secondHelpPhone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:layout_marginEnd="52dp"
+        android:text="+380958521030"
+        android:textSize="18sp"
+        android:autoLink="phone"
+        app:layout_constraintBottom_toBottomOf="@+id/vodafoneLogo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/vodafoneLogo" />
+
+    <TextView
+        android:id="@+id/thirdHelpPhone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="52dp"
+        android:layout_marginTop="488dp"
+        android:text="+380739641030"
+        android:textSize="18sp"
+        android:autoLink="phone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/helpText2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="57dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginStart="4dp"
+        android:text="Then our managers will contact you to clarify the details"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toTopOf="@+id/helpText4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/helpText1" />
+
+    <ImageView
+        android:id="@+id/lifecellLogo"
+        android:layout_width="0dp"
+        android:layout_height="36dp"
+        android:layout_marginEnd="34dp"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="480dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/thirdHelpPhone"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/lifecell_logo" />
+
+    <ImageView
+        android:id="@+id/kyivstarLogo"
+        android:layout_width="0dp"
+        android:layout_height="56dp"
+        android:layout_marginBottom="32dp"
+        android:layout_marginEnd="37dp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/thirdHelpPhone"
+        app:layout_constraintEnd_toStartOf="@+id/firstHelpPhone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/kyivstar_logo" />
+
+    <ImageView
+        android:id="@+id/vodafoneLogo"
+        android:layout_width="0dp"
+        android:layout_height="47dp"
+        android:layout_marginBottom="23dp"
+        android:layout_marginEnd="34dp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/kyivstarLogo"
+        app:layout_constraintEnd_toStartOf="@+id/secondHelpPhone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/vodafone_logo" />
+
+</android.support.constraint.ConstraintLayout>

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:layout_editor_absoluteY="25dp">
+
+    <Button
+        android:id="@+id/makeOrderButton"
+        android:layout_width="320dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="8dp"
+        android:text="Make Order"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/newIcon"
+        android:onClick="makeOrderActivityOnClick"/>
+
+    <Button
+        android:id="@+id/ordersButton"
+        android:layout_width="320dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="8dp"
+        android:text="My Booked Tickets"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tiketsImage"
+        android:onClick="myBookedTicketsActivityOnClick"/>
+
+    <Button
+        android:id="@+id/logOutButton"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="8dp"
+        android:text="Log Out"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:onClick="logOutOnClick"/>
+
+    <TextView
+        android:id="@+id/helloLabel"
+        android:layout_width="210dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="132dp"
+        android:layout_marginTop="8dp"
+        android:paddingTop="7dp"
+        android:text="Hello,"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/helpPersonalButton"
+        android:layout_width="320dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="8dp"
+        android:text="Help"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/helpImage"
+        android:onClick="helpActivityOnClick"/>
+
+    <Button
+        android:id="@+id/aboutApp"
+        android:layout_width="320dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="8dp"
+        android:text="About app"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/infoIcon"
+        android:onClick="aboutActivityOnClick"/>
+
+    <ImageView
+        android:id="@+id/tiketsImage"
+        android:layout_width="230dp"
+        android:layout_height="60dp"
+        android:layout_marginEnd="64dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/makeOrderButton"
+        app:srcCompat="@drawable/tickets_icon" />
+
+    <ImageView
+        android:id="@+id/helpImage"
+        android:layout_width="230dp"
+        android:layout_height="60dp"
+        android:layout_marginEnd="64dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ordersButton"
+        app:srcCompat="@drawable/help_icon" />
+
+    <ImageView
+        android:id="@+id/infoIcon"
+        android:layout_width="230dp"
+        android:layout_height="60dp"
+        android:layout_marginEnd="64dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/helpPersonalButton"
+        app:srcCompat="@drawable/about_icon" />
+
+    <ImageView
+        android:id="@+id/newIcon"
+        android:layout_width="230dp"
+        android:layout_height="60dp"
+        android:layout_marginEnd="64dp"
+        android:layout_marginTop="60dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/new_icon" />
+
+</android.support.constraint.ConstraintLayout>
